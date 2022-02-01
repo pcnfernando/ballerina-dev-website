@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Bidirectional Streaming RPC
 description: This Ballerina by Example has a gRPC streaming service and a streaming client. Both the client and the server sends a stream of messages to each other.
 keywords: ballerina, ballerina by example, bbe, grpc, bidirectional streaming
@@ -16,17 +16,20 @@ redirect_from:
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="o">/</span><span class="nx">grpc</span><span class="p">;</span>
 
 <span class="nd">@grpc:ServiceDescriptor {</span>
-    <span class="nx">descriptor</span><span class="p">:</span> <span class="nx">ROOT_DESCRIPTOR</span><span class="p">,</span>
-    <span class="nx">descMap</span><span class="p">:</span> <span class="nx">getDescriptorMap</span><span class="p">()</span>
+    <span class="nx">descriptor</span><span class="p">:</span> <span class="nx">ROOT_DESCRIPTOR_GRPC_BIDIRECTIONAL_STREAMING</span><span class="p">,</span>
+    <span class="nx">descMap</span><span class="p">:</span> <span class="nx">getDescriptorMapGrpcBidirectionalStreaming</span><span class="p">()</span>
 <span class="p">}</span>
 <span class="kd">service</span> <span class="s">&quot;Chat&quot;</span> <span class="nx">on</span> <span class="nx">new</span> <span class="nx">grpc</span><span class="p">:</span><span class="nx">Listener</span><span class="p">(</span><span class="mi">9090</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">remote</span> <span class="kd">function</span> <span class="nx">chat</span><span class="p">(</span><span class="nx">ChatStringCaller</span> <span class="nx">caller</span><span class="p">,</span>
+    <span class="c1">// The generated code of the Ballerina gRPC command does not contain ChatStringCaller.</span>
+    <span class="c1">// To show the usage of a caller, this RPC call uses a caller to send messages to the client.</span>
+    <span class="nx">isolated</span> <span class="nx">remote</span> <span class="kd">function</span> <span class="nx">chat</span><span class="p">(</span><span class="nx">ChatStringCaller</span> <span class="nx">caller</span><span class="p">,</span>
                     <span class="nx">stream</span><span class="p">&lt;</span><span class="nx">ChatMessage</span><span class="p">,</span> <span class="nx">error</span><span class="err">?</span><span class="p">&gt;</span> <span class="nx">clientStream</span><span class="p">)</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
         <span class="c1">// Reads and processes each message in the client stream.</span>
-        <span class="nx">check</span> <span class="nx">clientStream</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ChatMessage</span> <span class="nx">chatMsg</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">checkpanic</span> <span class="nx">caller</span><span class="o">-&gt;</span><span class="nx">sendString</span><span class="p">(</span>
-                                <span class="kt">string</span> <span class="s">`${chatMsg.name}: ${chatMsg.message}`</span><span class="p">);</span>
-        <span class="p">});</span>
+        <span class="nx">_</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">from</span> <span class="nx">ChatMessage</span> <span class="nx">chatMsg</span> <span class="nx">in</span> <span class="nx">clientStream</span>
+            <span class="nx">do</span> <span class="p">{</span>
+                <span class="nx">checkpanic</span> <span class="nx">caller</span><span class="o">-&gt;</span><span class="nx">sendString</span><span class="p">(</span>
+                    <span class="kt">string</span> <span class="s">`${chatMsg.name}: ${chatMsg.message}`</span><span class="p">);</span>
+            <span class="p">};</span>
         <span class="c1">// Once the client sends a notification to indicate the end of the stream, &#39;()&#39; is returned by the stream.</span>
         <span class="nx">check</span> <span class="nx">caller</span><span class="o">-&gt;</span><span class="nx">complete</span><span class="p">();</span>
     <span class="p">}</span>
@@ -90,14 +93,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="grpc-client-streaming.html">
+                                    <a class="prev" href="grpc-client-streaming.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Client Streaming RPC</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="proto-to-ballerina.html">
+                                    <a class="next" href="proto-to-ballerina.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Proto To Ballerina</p>
                                     </a>
@@ -110,9 +113,9 @@ redirect_from:
             </div>
             <div class="example" id="grpc-bidirectional-streaming">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -124,11 +127,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -238,12 +239,10 @@ bal grpc --input grpc_bidirectional_streaming.proto  --output stubs
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>@grpc:ServiceDescriptor {
-    descriptor: ROOT_DESCRIPTOR,
-    descMap: getDescriptorMap()
+    descriptor: ROOT_DESCRIPTOR_GRPC_BIDIRECTIONAL_STREAMING,
+    descMap: getDescriptorMapGrpcBidirectionalStreaming()
 }
 service &quot;Chat&quot; on new grpc:Listener(9090) {
-    remote function chat(ChatStringCaller caller,
-                    stream&lt;ChatMessage, error?&gt; clientStream) returns error? {
 </code></pre></div>
 
                                 </div>
@@ -255,10 +254,32 @@ service &quot;Chat&quot; on new grpc:Listener(9090) {
                             <div class="cTR hover-enable">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>        check clientStream.forEach(function(ChatMessage chatMsg) {
-            checkpanic caller-&gt;sendString(
-                                string `${chatMsg.name}: ${chatMsg.message}`);
-        });
+                                    <div class="highlight"><pre><code class=language-ballerina>    isolated remote function chat(ChatStringCaller caller,
+                    stream&lt;ChatMessage, error?&gt; clientStream) returns error? {
+</code></pre></div>
+
+                                </div>
+                                <div class="docs">
+                                    
+                                    <div class="cCodeDesription">
+                                        <div>
+                                            <p>The generated code of the Ballerina gRPC command does not contain ChatStringCaller.
+ To show the usage of a caller, this RPC call uses a caller to send messages to the client.</p>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="cTR hover-enable">
+
+                                <div class="code leading">
+                                    <div class="highlight"><pre><code class=language-ballerina>        _ = check from ChatMessage chatMsg in clientStream
+            do {
+                checkpanic caller-&gt;sendString(
+                    string `${chatMsg.name}: ${chatMsg.message}`);
+            };
 </code></pre></div>
 
                                 </div>
@@ -630,10 +651,14 @@ bal run client/target/bin/client.jar
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

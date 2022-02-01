@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Controlling Openness
 description: This BBE demonstrates controlling openness in Ballerina.
 keywords: ballerina, ballerina by example, bbe, controlling openness
@@ -59,16 +59,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="open-records.html">
+                                    <a class="prev" href="open-records.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Open Records</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="json-type.html">
+                                    <a class="next" href="object.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>JSON Type</p>
+                                        <p>Object</p>
                                     </a>
                                 </div>
                                 
@@ -79,9 +79,9 @@ redirect_from:
             </div>
             <div class="example" id="controlling-openness">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -92,16 +92,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=432777216bb0bb5568ca58b5d74a217b&file=controlling_openness.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=aa514d41d26c448d4df4a0c11cb02a23&file=controlling_openness.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -272,10 +270,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

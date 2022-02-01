@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Query Expressions
 description: This BBE demonstrates query expressions in Ballerina.
 keywords: ballerina, ballerina by example, bbe, query, query expression, iterable
@@ -47,7 +47,7 @@ redirect_from:
                     <tr>
                         <td class="cLeftTD">
                             <h2>Query Expressions</h2>
-                            <p><p>Query-like expressions start with <code>from</code> clause and end with <code>select</code> clause. It is a
+                            <p><p>Query-like expressions start with a <code>from</code> clause and end with a <code>select</code> clause. It is a
  list comprehension, based on mathematical &ldquo;set builder&rdquo; notation.</p>
 </p>
 
@@ -56,14 +56,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="json-numbers.html">
+                                    <a class="prev" href="structured-keys.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>JSON Numbers</p>
+                                        <p>Structured Keys</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="destructuring-records.html">
+                                    <a class="next" href="destructuring-records.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Destructuring Records</p>
                                     </a>
@@ -76,9 +76,9 @@ redirect_from:
             </div>
             <div class="example" id="query-expressions">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -89,16 +89,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=c8ef53ef63d5ee357612c4434d2813bb&file=query_expressions.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=1fa6de1f95c5e164558195e9bde6995d&file=query_expressions.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -263,10 +261,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

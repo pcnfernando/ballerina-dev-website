@@ -97,13 +97,13 @@ a:hover {
 }
 
 p.cTagLine {
-    font-size: 18px !important;
+    font-size: 16px !important;
 
     line-height: 30px !important;
 }
 
 .cBallerina-io p {
-    font-size: 18px;
+    font-size: 16px;
 
     color: #57595d;
 
@@ -705,7 +705,7 @@ button.navbar-toggle {
 }
 
 a.cMobileLogo {
-    margin-top: 10px;
+    margin-top: 3px;
 
     display: inline-block;
 }
@@ -893,7 +893,7 @@ a.cMobileLogo {
 }
 
 .wy-nav-content h1 {
-    font-size: 45px;
+    font-size: 38px;
     color: #585a5e;
     font-weight: 200;
     margin-bottom: 30px;
@@ -987,24 +987,34 @@ h7 {
 }
 
 .cBallerina-io h2 {
-    font-size: 30px;
-
+    font-size: 32px;
     margin-top: 40px;
-
-    margin-bottom: 40px;
-
+    margin-bottom: 30px;
     font-weight: 600;
     color: #464646;
-
     border-bottom: 2px solid #464646;
-
     display: inline-block;
-
     padding-bottom: 10px;
+    scroll-margin-top: 60px;
 
     /* text-transform: uppercase; */
 }
-
+.cBallerina-io h3 {
+    font-size: 28px;
+    scroll-margin-top: 60px;
+}
+.cBallerina-io h4 {
+    font-size: 22px;
+    scroll-margin-top: 50px;
+}
+.cBallerina-io h5 {
+    font-size: 20px;
+    scroll-margin-top: 40px;
+}
+.cBallerina-io h6 {
+    font-size: 18px;
+    scroll-margin-top: 40px;
+}
 /* CON BANNER */
 
 #iBanner {
@@ -1223,8 +1233,6 @@ ul.wy-breadcrumbs {
 }
 p span::before,
 p span.line-numbers-rows,
-li span::before,
-li span.line-numbers-rows,
 h2 span::before,
 h2 span.line-numbers-rows,
 h3 span::before,
@@ -1239,7 +1247,14 @@ td span::before,
 td span.line-numbers-rows {
     display: none !important;
 }
-
+li code span::before,
+li code span.line-numbers-rows {
+    display: none !important;
+}
+li pre code span::before,
+li pre code span.line-numbers-rows {
+    display: block !important;
+}
 @-webkit-keyframes loader {
     from {
         -webkit-transform: rotate(0deg);
@@ -1458,6 +1473,24 @@ td span.line-numbers-rows {
         position: absolute;
         z-index: 9999999999999 !important;
     }
+    .cInfoBannerVersionHandling {
+        background:  #494949;
+        width: 100%;
+        display: inline-block;
+        color: #fff;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        font-weight: 200;
+        font-size: 15px !important;
+        position: absolute;
+        z-index: 9999999999999 !important;
+    }
+    .cInfoBannerLink{font-weight: 200;font-size: 15px !important;color: #20b6b0;}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 69019f41480c7e2fc78aba503409877c1da980b5
     .navbar-nav > li:last-child a.cSerachIcon {
         display: none;
     }
@@ -1594,8 +1627,12 @@ td span.line-numbers-rows {
 .select-css option {
     font-weight: normal;
 }
-
-@media (max-width: 1000px) {
+@media (min-width: 992px) {
+    .cSearchMenu {
+        margin-left: 15px;
+    }
+}
+/* @media (max-width: 1000px) {
     .cSearchMenu {
         position: absolute;
         bottom: 25px;
@@ -1611,12 +1648,13 @@ td span.line-numbers-rows {
     .cVlable {
         color: #fff !important;
     }
-}
+} */
 
 @media (max-width: 991px) {
     .navbar-header {
         float: none;
     }
+    .cIUnderstand{margin-top:10px;}
     .navbar-toggle {
         display: block;
     }
@@ -1794,7 +1832,8 @@ ul.wy-breadcrumbs {
 
 .cCookie-Policy p a {
     color: #57595d !important;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 16px;
 }
 .cCookie-Policy p a:hover {
     color: #fff !important;
@@ -1806,7 +1845,11 @@ ul.wy-breadcrumbs {
     color: #fff;
     padding: 10px 20px;
     display: inline-block;
-    margin-top: 10px;
+    font-size: 16px;
+}
+.cIUnderstand:hover{
+    background-color: #eeeeee;
+    color: #57595d ;
 }
 
 .cBlallerina-io-docs-content-container ul li {
@@ -1929,10 +1972,46 @@ h6 pre[class*="language-"] {
     .mobileSubNav {
         display: flex;
     }
-    .cLeftNavSticky {
-        margin-top: 70px;
+    .mobileSubNav {
+        margin-top: 60px;
     }
     .cBallerina-io-breadcrumbs {
         display: none;
+    }
+}
+/* ol li.line-numbers pre code span.line-numbers-rows,
+ul li.line-numbers pre code span.line-numbers-rows {
+    display: block !important;
+}
+ol li.line-numbers pre code span.line-numbers-rows span:before,
+ul li.line-numbers pre code span.line-numbers-rows span:before {
+    display: block !important;
+} */
+@media only screen and (max-width: 1199px) {
+    .cBallerina-io-Nav > .container {
+        width: 100%;
+    }
+    .cMobileLogo img {
+        max-width: 120px;
+    }
+    .algolia-search-cont {
+        max-width: 140px;
+    }
+    .cVersionItem {
+        padding-right: 0px;
+    }
+    .algolia-autocomplete {
+        flex-grow: 1;
+    }
+    .algolia-search-cont .algolia-search-box {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .navbar-nav > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Service - Mutual SSL
 description: BBE on how to secure HTTP listener with mutual SSL.
 keywords: ballerina, ballerina by example, bbe, http, mutual ssl, ssl protocols, ciphers
@@ -66,14 +66,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="http-service-ssl-tls.html">
+                                    <a class="prev" href="http-service-ssl-tls.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Service - SSL/TLS</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="http-service-basic-auth-file-user-store.html">
+                                    <a class="next" href="http-service-basic-auth-file-user-store.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Service - Basic Auth File User Store</p>
                                     </a>
@@ -86,9 +86,9 @@ redirect_from:
             </div>
             <div class="example" id="http-service-mutual-ssl">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -100,11 +100,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -254,7 +252,27 @@ redirect_from:
                                     <div class="highlight"><pre><code class=shell-session># You may need to change the certificate file path, private key file path, and
 # trusted certificate file path.
 bal run http_service_mutual_ssl.bal
-[ballerina/http] started HTTPS/WSS listener 0.0.0.0:9090
+</code></pre></div>
+
+                                </div>
+                                <div class="docs">
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="codeSnippeset">
+
+                        <div class="cBBE-body">
+                            
+                            <div class="cTR cOutputTr">
+
+                                <div class="code cOutput">
+                                    <div class="highlight"><pre><code class=shell-session># To invoke the service, use the cURL commands below.
+curl https://localhost:9090/foo/bar --cert /path/to/client-public.crt
+    --key /path/to/client-private.key --cacert /path/to/server-public.crt
 </code></pre></div>
 
                                 </div>
@@ -284,10 +302,14 @@ bal run http_service_mutual_ssl.bal
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

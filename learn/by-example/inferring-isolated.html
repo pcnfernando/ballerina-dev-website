@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Inferring Isolated
 description: This BBE introduces isolated inference in Ballerina.
 keywords: ballerina, ballerina by example, bbe, inferring isolated
@@ -49,12 +49,12 @@ redirect_from:
                             <h2>Inferring Isolated</h2>
                             <p><p><code>isolated</code> is a complex feature, which would be a lot for an application developer to understand.
  A typical Ballerina application consists of a single module that imports multiple library modules.
- Within a single module, we can infer <code>isolated</code> qualifiers. Object w/o mutable fields is
- inherently <code>isolated</code>. Application developer&rsquo;s responsibility is to use <code>lock</code> statement where
+ Within a single module, the compiler infers <code>isolated</code> qualifiers. An object without mutable fields is
+ inherently <code>isolated</code>. It is the application developer&rsquo;s responsibility to use <code>lock</code> statements where
  needed. e.g.,
  <ul>
- <li>access self in a <code>service</code> object with mutable state</li>
- <li>access mutable module-level variables</li>
+ <li>accessing <code>self</code> in a <code>service</code> object with mutable state</li>
+ <li>accessing mutable module-level variables</li>
  </ul>
  <br></br>
  <p>Compiler can inform developer where missing locks are preventing a <code>service</code> object or method from
@@ -66,14 +66,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="isolated-objects.html">
+                                    <a class="prev" href="isolated-objects.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Isolated Objects</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="testerina-assertions.html">
+                                    <a class="next" href="testerina-assertions.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Assertions</p>
                                     </a>
@@ -86,9 +86,9 @@ redirect_from:
             </div>
             <div class="example" id="inferring-isolated">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -99,16 +99,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=769626f92d70073d1825087f16fe19b6&file=inferring_isolated.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=190e8d538ec49d7f7d20285c23013598&file=inferring_isolated.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -295,10 +293,14 @@ Hello John
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

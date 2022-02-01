@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Waiting for Workers
 description: This BBE demonstrates waiting for workers
 keywords: ballerina, ballerina by example, bbe, worker, wait
@@ -47,14 +47,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="sequence-diagrams.html">
+                                    <a class="prev" href="sequence-diagrams.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Sequence Diagrams</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="strands.html">
+                                    <a class="next" href="strands.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Strands</p>
                                     </a>
@@ -67,9 +67,9 @@ redirect_from:
             </div>
             <div class="example" id="waiting-for-workers">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -80,16 +80,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=72c3b7caae24da1e4811f2f4ec4274e3&file=waiting_for_workers.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=7c26fa3fbb547f4e3acf86e61e9a5b9a&file=waiting_for_workers.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -223,10 +221,14 @@ After wait A
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

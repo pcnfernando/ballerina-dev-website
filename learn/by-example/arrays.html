@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Arrays
 description: This BBE demonstrates arrays in Ballerina.
 keywords: ballerina, ballerina by example, bbe, arrays, mutable list
@@ -27,7 +27,7 @@ redirect_from:
 
     <span class="c1">// `len` will be 3.</span>
     <span class="kt">int</span> <span class="nx">len</span> <span class="p">=</span> <span class="nx">v</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
-
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">len</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -48,16 +48,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="langlib-functions.html">
+                                    <a class="prev" href="langlib-functions.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Langlib Functions</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="foreach-statement.html">
+                                    <a class="next" href="binary-data.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Foreach Statement</p>
+                                        <p>Binary Data</p>
                                     </a>
                                 </div>
                                 
@@ -68,9 +68,9 @@ redirect_from:
             </div>
             <div class="example" id="arrays">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -81,16 +81,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=88e9f4419eb5c8fe16e52bc33dd89ef2&file=arrays.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=7108275100c816dccba3603d9f392ec9&file=arrays.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -174,8 +172,10 @@ redirect_from:
                             
                             <div class="cTR hover-enable">
 
-                                <div class="code leading">
+                                <div class="code">
                                     <div class="highlight"><pre><code class=language-ballerina>    int len = v.length();
+    io:println(len);
+}
 </code></pre></div>
 
                                 </div>
@@ -187,18 +187,6 @@ redirect_from:
 
                                         </div>
                                     </div>
-                                    
-                                </div>
-                            </div>
-                            
-                            <div class="cTR">
-
-                                <div class="code">
-                                    <div class="highlight"><pre><code class=language-ballerina>}
-</code></pre></div>
-
-                                </div>
-                                <div class="docs">
                                     
                                 </div>
                             </div>
@@ -215,6 +203,7 @@ redirect_from:
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run arrays.bal
 1
+4
 </code></pre></div>
 
                                 </div>
@@ -244,10 +233,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Read/Write CSV
 description: BBE on how to read/write from/to a CSV file.
 keywords: ballerina, ballerina by examples, bbe, csv, table
@@ -34,7 +34,7 @@ redirect_from:
     <span class="nx">stream</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">[],</span> <span class="nx">io</span><span class="p">:</span><span class="nx">Error</span><span class="err">?</span><span class="p">&gt;</span> <span class="nx">csvStream</span> <span class="p">=</span> <span class="nx">check</span>
                                         <span class="nx">io</span><span class="p">:</span><span class="nx">fileReadCsvAsStream</span><span class="p">(</span><span class="nx">csvFilePath2</span><span class="p">);</span>
     <span class="c1">// Iterates through the stream and prints the content.</span>
-    <span class="nx">error</span><span class="err">?</span> <span class="nx">e</span> <span class="p">=</span> <span class="nx">csvStream</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">check</span> <span class="nx">csvStream</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
                               <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
                           <span class="p">});</span>
 <span class="p">}</span>
@@ -57,14 +57,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="io-strings.html">
+                                    <a class="prev" href="io-strings.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Read/Write Strings</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="io-json.html">
+                                    <a class="next" href="io-json.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Read/Write JSON</p>
                                     </a>
@@ -77,9 +77,9 @@ redirect_from:
             </div>
             <div class="example" id="io-csv">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -90,16 +90,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=6f0ee4585f3b3a9fadaa191ae49c4ee8&file=io_csv.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=98bb3accc0a734eea3a23b30e103a848&file=io_csv.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -234,7 +232,7 @@ redirect_from:
                             <div class="cTR hover-enable">
 
                                 <div class="code">
-                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = csvStream.forEach(function(string[] val) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    check csvStream.forEach(function(string[] val) {
                               io:println(val);
                           });
 }
@@ -299,10 +297,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

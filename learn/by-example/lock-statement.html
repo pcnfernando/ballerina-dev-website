@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Lock Statement
 description: This BBE introduces lock statement in Ballerina.
 keywords: ballerina, ballerina by example, bbe, lock statement
@@ -38,7 +38,7 @@ redirect_from:
                         <td class="cLeftTD">
                             <h2>Lock Statement</h2>
                             <p><p>The <code>lock</code> statement allows mutable state to be safely accessed from multiple strands that are running on
- separate threads. Semantics are like an atomic section: execution of outermost <code>lock</code> block is not
+ separate threads. Semantics are like an atomic section. The execution of the outermost <code>lock</code> block is not
  interleaved. Naive implementation uses single, global, recursive lock. Efficient implementation can do
  compile-time lock inference.</p>
 </p>
@@ -48,14 +48,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="commit-rollback-handlers.html">
+                                    <a class="prev" href="commit-rollback-handlers.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Commit/Rollback Handlers</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="isolated-functions.html">
+                                    <a class="next" href="isolated-functions.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Isolated Functions</p>
                                     </a>
@@ -68,9 +68,9 @@ redirect_from:
             </div>
             <div class="example" id="lock-statement">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -81,16 +81,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=b5eeebbc87d4b1fa06a185be53cc883b&file=lock_statement.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=7f2a2201df5f7945aa8237ad5f2e8239&file=lock_statement.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -222,10 +220,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Alternate Wait
 description: This BBE demonstrates the alternate wait action
 keywords: ballerina, ballerina by example, bbe, worker, alternate wait
@@ -62,14 +62,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="named-worker-return-values.html">
+                                    <a class="prev" href="named-worker-return-values.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Named Worker Return Values</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="multiple-wait.html">
+                                    <a class="next" href="multiple-wait.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Multiple Wait</p>
                                     </a>
@@ -82,9 +82,9 @@ redirect_from:
             </div>
             <div class="example" id="alternate-wait">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -95,16 +95,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=52c1cf91752c47bd6c47f52dab71ff3f&file=alternate_wait.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=7b91c42cfffd7611041d476dc409507e&file=alternate_wait.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -278,10 +276,14 @@ import ballerina/io;
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

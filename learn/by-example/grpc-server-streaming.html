@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Server Streaming RPC
 description: This Ballerina by Example has a gRPC streaming service and a client. The client sends a request to the server and receives a stream of messages.
 keywords: ballerina, ballerina by example, bbe, grpc, server streaming
@@ -17,8 +17,8 @@ redirect_from:
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="o">/</span><span class="nx">log</span><span class="p">;</span>
 
 <span class="nd">@grpc:ServiceDescriptor {</span>
-    <span class="nx">descriptor</span><span class="p">:</span> <span class="nx">ROOT_DESCRIPTOR</span><span class="p">,</span>
-    <span class="nx">descMap</span><span class="p">:</span> <span class="nx">getDescriptorMap</span><span class="p">()</span>
+    <span class="nx">descriptor</span><span class="p">:</span> <span class="nx">ROOT_DESCRIPTOR_GRPC_SERVER_STREAMING</span><span class="p">,</span>
+    <span class="nx">descMap</span><span class="p">:</span> <span class="nx">getDescriptorMapGrpcServerStreaming</span><span class="p">()</span>
 <span class="p">}</span>
 <span class="kd">service</span> <span class="s">&quot;HelloWorld&quot;</span> <span class="nx">on</span> <span class="nx">new</span> <span class="nx">grpc</span><span class="p">:</span><span class="nx">Listener</span><span class="p">(</span><span class="mi">9090</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">remote</span> <span class="kd">function</span> <span class="nx">lotsOfReplies</span><span class="p">(</span><span class="kt">string</span> <span class="nx">name</span><span class="p">)</span>
@@ -71,14 +71,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="grpc-secured-simple.html">
+                                    <a class="prev" href="grpc-simple-with-headers.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Secured Simple RPC</p>
+                                        <p>Simple RPC With Headers</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="grpc-client-streaming.html">
+                                    <a class="next" href="grpc-client-streaming.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Client Streaming RPC</p>
                                     </a>
@@ -91,9 +91,9 @@ redirect_from:
             </div>
             <div class="example" id="grpc-server-streaming">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -105,11 +105,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -216,8 +214,8 @@ import ballerina/log;
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>@grpc:ServiceDescriptor {
-    descriptor: ROOT_DESCRIPTOR,
-    descMap: getDescriptorMap()
+    descriptor: ROOT_DESCRIPTOR_GRPC_SERVER_STREAMING,
+    descMap: getDescriptorMapGrpcServerStreaming()
 }
 service &quot;HelloWorld&quot; on new grpc:Listener(9090) {
     remote function lotsOfReplies(string name)
@@ -514,10 +512,14 @@ bal run client/target/bin/client.jar
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

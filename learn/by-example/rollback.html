@@ -1,7 +1,7 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Rollback
-description: This BBE demonstrate `rollback` operation in Ballerina
+description: This BBE demonstrates `rollback` operation in Ballerina.
 keywords: ballerina, ballerina by example, bbe, rollback, rollback transaction
 permalink: /learn/by-example/rollback
 active: rollback
@@ -22,15 +22,18 @@ redirect_from:
 
     <span class="c1">// Creates an array of `Update` records.</span>
     <span class="nx">Update</span><span class="p">[]</span> <span class="nx">updates</span> <span class="p">=</span>
-    <span class="p">[{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="mi">2000</span><span class="p">},</span>
-    <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="o">-</span><span class="mi">1000</span><span class="p">},</span>
-    <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="mi">1500</span><span class="p">},</span>
-    <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="o">-</span><span class="mi">1000</span><span class="p">},</span>
-    <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="o">-</span><span class="mi">2000</span><span class="p">}];</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="mi">2000</span><span class="p">},</span>
+        <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="o">-</span><span class="mi">1000</span><span class="p">},</span>
+        <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="mi">1500</span><span class="p">},</span>
+        <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="o">-</span><span class="mi">1000</span><span class="p">},</span>
+        <span class="p">{</span><span class="nx">updateIndex</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">stockMnt</span><span class="p">:</span> <span class="o">-</span><span class="mi">2000</span><span class="p">}</span>
+    <span class="p">];</span>
     <span class="c1">// If an error is returned from the `transfer` function,</span>
     <span class="c1">// the error is returned from the `main` and it exits.</span>
     <span class="nx">check</span> <span class="nx">transfer</span><span class="p">(</span><span class="nx">updates</span><span class="p">);</span>
 
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">transfer</span><span class="p">(</span><span class="nx">Update</span><span class="p">[]</span> <span class="nx">updates</span><span class="p">)</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
@@ -43,10 +46,11 @@ redirect_from:
             <span class="nx">check</span> <span class="nx">doUpdate</span><span class="p">(</span><span class="nx">u</span><span class="p">);</span>
 
         <span class="p">}</span>
-        <span class="c1">// `commit` will not be called,because of an implicit rollback.</span>
+        <span class="c1">// `commit` will not be called because of an implicit rollback.</span>
         <span class="nx">check</span> <span class="nx">commit</span><span class="p">;</span>
 
     <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">doUpdate</span><span class="p">(</span><span class="nx">Update</span> <span class="nx">u</span><span class="p">)</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
@@ -55,6 +59,7 @@ redirect_from:
         <span class="k">return</span> <span class="nx">error</span><span class="p">(</span><span class="s">&quot;Not enough Stocks: &quot;</span><span class="p">,</span> <span class="nx">stockIndex</span> <span class="p">=</span> <span class="nx">u</span><span class="p">.</span><span class="nx">updateIndex</span><span class="p">);</span>
     <span class="p">}</span>
 
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -76,14 +81,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="check-semantics.html">
+                                    <a class="prev" href="check-semantics.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Check Semantics</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="retry-transaction-statement.html">
+                                    <a class="next" href="retry-transaction-statement.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Retry Transaction Statement</p>
                                     </a>
@@ -96,9 +101,9 @@ redirect_from:
             </div>
             <div class="example" id="rollback">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -109,16 +114,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=6309b42591c5c497c0aa0a192024fb6c&file=rollback.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=3689070f5a4a603984159057fe4dc82e&file=rollback.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -163,11 +166,13 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    Update[] updates =
-    [{updateIndex: 0, stockMnt: 2000},
-    {updateIndex: 1, stockMnt: -1000},
-    {updateIndex: 2, stockMnt: 1500},
-    {updateIndex: 3, stockMnt: -1000},
-    {updateIndex: 4, stockMnt: -2000}];
+    [
+        {updateIndex: 0, stockMnt: 2000},
+        {updateIndex: 1, stockMnt: -1000},
+        {updateIndex: 2, stockMnt: 1500},
+        {updateIndex: 3, stockMnt: -1000},
+        {updateIndex: 4, stockMnt: -2000}
+    ];
 </code></pre></div>
 
                                 </div>
@@ -206,7 +211,8 @@ redirect_from:
                             <div class="cTR">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>    return;
+}
 </code></pre></div>
 
                                 </div>
@@ -301,7 +307,7 @@ redirect_from:
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p><code>commit</code> will not be called,because of an implicit rollback.</p>
+                                            <p><code>commit</code> will not be called because of an implicit rollback.</p>
 
                                         </div>
                                     </div>
@@ -313,6 +319,7 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    }
+    return;
 }
 </code></pre></div>
 
@@ -358,7 +365,8 @@ redirect_from:
                             <div class="cTR">
 
                                 <div class="code">
-                                    <div class="highlight"><pre><code class=language-ballerina>}
+                                    <div class="highlight"><pre><code class=language-ballerina>    return;
+}
 </code></pre></div>
 
                                 </div>
@@ -408,10 +416,14 @@ error: Not enough Stocks:  {&quot;stockIndex&quot;:4}
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

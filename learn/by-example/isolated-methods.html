@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Isolated Methods
 description: This BBE introduces isolated methods in Ballerina.
 keywords: ballerina, ballerina by example, bbe, isolated methods
@@ -45,7 +45,7 @@ redirect_from:
                             <h2>Isolated Methods</h2>
                             <p><p>Object methods can be <code>isolated</code>. An <code>isolated</code> method is same as an <code>isolated</code> function with
  <code>self</code> treated as a parameter. An <code>isolated</code> method call is concurrency-safe if both the object
- is safe and the arguments are safe. This is not quite enough for service concurrency: when
+ is safe and the arguments are safe. This is not quite enough for service concurrency. When
  a <code>listener</code> makes calls to a <code>remote</code> or <code>resource</code> method,
  <ul>
  <li>it can ensure the safety of arguments it passes</li>
@@ -58,14 +58,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="isolated-variables.html">
+                                    <a class="prev" href="isolated-variables.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Isolated Variables</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="isolated-objects.html">
+                                    <a class="next" href="isolated-objects.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Isolated Objects</p>
                                     </a>
@@ -78,9 +78,9 @@ redirect_from:
             </div>
             <div class="example" id="isolated-methods">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -91,16 +91,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=b89b871f2b82098e58e5ca911c26c8d2&file=isolated_methods.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=82c3fc156e814b398477d645d96d9a31&file=isolated_methods.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -254,10 +252,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

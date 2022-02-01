@@ -24,6 +24,31 @@ nav.cLeftNavContainer ul li.current-inner-sub a {
   color: #464646;
   font-weight: 600;
 }
+
+.sub-ul-two{
+  padding-left: 28px !important;
+}
+
+.sub-ul-three{
+  padding-left: 38px !important;
+}
+
+.highlight{
+  color: #464646 !important;
+}
+
+#tree-expand-all , #tree-collapse-all, .cTocElements {
+  display:none !important;
+} 
+
+.cGitButtonContainer {
+  display:none !important;
+} 
+
+.cBallerinaTocContainer  {
+    display:none !important;
+}
+
 .sub-menu,
 .inner-sub-menu,
 .inner-sub-menu-two {
@@ -51,6 +76,49 @@ nav.cLeftNavContainer ul li.current-inner-sub a {
 .sub-menu.CurrentUl {
   background-color: #f0f0f0;
 }
+
+
+.toc {
+  padding-top: 10px;
+  width: 100%;
+  max-height: 100%;
+  line-height: 2;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc ul ul {
+  padding-left: 2em;
+}
+.toc li a {
+  display: inline-block;
+  color: #22b7b1;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.toc li.visible > a {
+  color: #464646;
+  transform: translate(5px); 
+}
+
+.toc-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.toc-marker path {
+  transition: all 0.3s ease;
+}
+
+
+
+
 
 .inner-sub-menu .cLeftMenuInnerLink {
   padding: 10px 0;
@@ -149,7 +217,7 @@ nav.cLeftNavContainer ul li .cLeftMenuLink {
 }
 nav.cLeftNavContainer ul li ul li a {
   padding-right: 0;
-  padding-left: 5px;
+  padding-left: 15px;
 }
 /* nav.cLeftNavContainer ul li ul li::before {
     content: "–";
@@ -173,6 +241,9 @@ ul.sub-ul {
   margin-top: 20px;
   font-size: 24px;
   margin-bottom: 20px;
+}
+.cBallerina-io .cLearnPageContentCol a.cBoxLink{
+  display: block;
 }
 .cLearnPageContentCol {
   /* min-height: 340px; */
@@ -235,85 +306,20 @@ a.cBoxLink:focus a.cIconLink:focus {
   color: #585a5e;
   border-color: #585a5e;
 }
-#tree li {
-  /* padding: 0 0 10px 0; */
-  padding-right: 0px;
-  list-style-image: url("/img/toc-list.svg") !important;
-
-  /* padding-right: 30px; */
-}
-li.expanded {
-  /* border-left: 1px solid #20b6b0; */
-  /* margin-bottom: 10px; */
-}
-
-.abix-tree-list .collapsed span.icon,
-.abix-tree-list .expanded span.icon {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-ul#tree {
-  padding-left: 20px;
-}
-
-#tree li a {
-  font-size: 16px !important;
-  font-weight: 600;
-  margin-bottom: 5px;
-  display: inline-block;
-}
-
-#tree li li a {
-  font-size: 16px !important;
-  font-weight: 500;
-}
-
-#tree li li li a {
-  font-size: 16px !important;
-  font-weight: 400;
-}
-
-#tree li li li li a {
-  font-size: 16px !important;
-  font-weight: 300;
-}
-
-span.icon {
-  background-color: transparent;
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  margin-left: -23px;
-  background-size: 12px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-span.icon:hover {
-  background-color: #464646;
-}
-
-span.icon.plus-icon {
-  background-image: url("/img/plus.svg");
-  background-size: 8px;
-}
-
-span.icon.minus-icon {
-  background-image: url("/img/minus.svg");
-  background-color: #464646;
-}
-.abix-tree-list .collapsed span.icon,
-.abix-tree-list .expanded span.icon {
-  margin-right: 8px !important;
-}
 .cBallerinaTocContainer {
   background-color: #f7f7f7;
   display: inline-block;
   width: 100%;
   padding: 30px 30px 20px 30px;
 }
-
+.cBallerinaTocContainer ul li a code {
+  font-size: inherit !important;
+  color: inherit !important;
+  background-color: #eaeaea !important;
+}
+.cBallerinaTocContainer .line-numbers-rows > span {
+  display: none !important;
+}
 p.cTOCcontol {
   margin-top: 0;
   margin-bottom: 30px;
@@ -385,14 +391,14 @@ a.cTopLink:hover {
 /* Chrome 29+ */
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
   span.icon {
-    background-color: transparent;
+    /* background-color: transparent;
     width: 14px;
     height: 14px;
     display: inline-block;
     margin-left: -21px;
     background-size: 12px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
   }
 }
 

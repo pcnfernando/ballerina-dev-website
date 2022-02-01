@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Chunking
 description: BBE on how to configure the chunking behavior of the HTTP client in Ballerina.
 keywords: ballerina, ballerina by example, bbe, http, chunked, transfer-encoding
@@ -62,14 +62,14 @@ If the message size is larger than the buffer size (8K), messages are chunked. C
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="http-cookies.html">
+                                    <a class="prev" href="http-cookies.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Cookies</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="http-response-with-multiparts.html">
+                                    <a class="next" href="http-response-with-multiparts.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Response With Multiparts</p>
                                     </a>
@@ -82,9 +82,9 @@ If the message size is larger than the buffer size (8K), messages are chunked. C
             </div>
             <div class="example" id="http-disable-chunking">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -96,11 +96,9 @@ If the message size is larger than the buffer size (8K), messages are chunked. C
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -235,8 +233,6 @@ If the message size is larger than the buffer size (8K), messages are chunked. C
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run http_disable_chunking.bal
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9092
 </code></pre></div>
 
                                 </div>
@@ -287,10 +283,14 @@ curl http://localhost:9092/chunkingSample
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

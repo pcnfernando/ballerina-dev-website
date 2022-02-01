@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Multiple Wait
 description: This BBE demonstrates the multiple wait action
 keywords: ballerina, ballerina by example, bbe, multiple wait, worker
@@ -37,6 +37,7 @@ redirect_from:
     <span class="nx">Result</span> <span class="nx">res</span> <span class="p">=</span>  <span class="nx">multiFetch</span><span class="p">(</span><span class="s">&quot;https://postman-echo.com/get?lang=ballerina&quot;</span><span class="p">,</span>
                              <span class="s">&quot;https://postman-echo.com/get?greeting=hello&quot;</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">fetch</span><span class="p">(</span><span class="kt">string</span> <span class="nx">url</span><span class="p">)</span> <span class="nx">returns</span> <span class="kt">string</span><span class="p">|</span><span class="nx">error</span> <span class="p">{</span>
@@ -62,14 +63,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="alternate-wait.html">
+                                    <a class="prev" href="alternate-wait.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Alternate Wait</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="named-workers-and-futures.html">
+                                    <a class="next" href="named-workers-and-futures.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Named Workers and Futures</p>
                                     </a>
@@ -82,9 +83,9 @@ redirect_from:
             </div>
             <div class="example" id="multiple-wait">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -95,16 +96,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=bd19be07a54eb5c26e9a76e32e41ef37&file=multiple_wait.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=629fab891eacd1aa040bf1a6614fe177&file=multiple_wait.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -195,6 +194,7 @@ import ballerina/io;
     Result res =  multiFetch(&quot;https://postman-echo.com/get?lang=ballerina&quot;,
                              &quot;https://postman-echo.com/get?greeting=hello&quot;);
     io:println(res);
+    return;
 }
 </code></pre></div>
 
@@ -261,10 +261,14 @@ import ballerina/io;
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

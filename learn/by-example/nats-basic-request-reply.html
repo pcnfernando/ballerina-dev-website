@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Request/Reply
 description: BBE on producing and consuming a message from a subject in the NATS basic server using Ballerina.
 keywords: ballerina, ballerina by example, bbe, nats, basic, server, request, reply
@@ -46,7 +46,7 @@ redirect_from:
 
         <span class="c1">// Logs the incoming message.</span>
         <span class="kt">string</span><span class="p">|</span><span class="nx">error</span> <span class="nx">messageContent</span> <span class="p">=</span> <span class="kt">string</span><span class="p">:</span><span class="nx">fromBytes</span><span class="p">(</span><span class="kt">message</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">messageContent</span> <span class="nx">is</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="nx">messageContent</span> <span class="nx">is</span> <span class="kt">string</span> <span class="p">{</span>
             <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Received message: &quot;</span> <span class="o">+</span> <span class="nx">messageContent</span><span class="p">);</span>
         <span class="p">}</span>
 
@@ -78,16 +78,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="nats-basic-pub-sub.html">
+                                    <a class="prev" href="nats-basic-pub-sub.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Publish/Subscribe</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="nats-streaming-pub-sub.html">
+                                    <a class="next" href="nats-basic-secure-connection.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Publish/Subscribe</p>
+                                        <p>Secured Connection</p>
                                     </a>
                                 </div>
                                 
@@ -98,9 +98,9 @@ redirect_from:
             </div>
             <div class="example" id="nats-basic-request-reply">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -112,11 +112,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -324,7 +322,7 @@ import ballerinax/nats;
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>        string|error messageContent = string:fromBytes(message.content);
-        if (messageContent is string) {
+        if messageContent is string {
             log:printInfo(&quot;Received message: &quot; + messageContent);
         }
 </code></pre></div>
@@ -375,7 +373,6 @@ import ballerinax/nats;
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run subscriber.bal
-[ballerinax/nats] Client subscribed for subject demo.bbe
 time = 2021-05-19T10:14:09.200+05:30 level = INFO module = &quot;&quot; message = &quot;Received message: Hello from Ballerina&quot;
 </code></pre></div>
 
@@ -406,10 +403,14 @@ time = 2021-05-19T10:14:09.200+05:30 level = INFO module = &quot;&quot; message 
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

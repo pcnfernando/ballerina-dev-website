@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Resource Method Typing
 description: This BBE demonstrates resource method typing in Ballerina
 keywords: ballerina, ballerina by example, bbe, resource, service, data binding
@@ -56,14 +56,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="converting-to-user-defined-type.html">
+                                    <a class="prev" href="converting-to-user-defined-type.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Converting to User-Defined Type</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="json-numbers.html">
+                                    <a class="next" href="json-numbers.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>JSON Numbers</p>
                                     </a>
@@ -76,9 +76,9 @@ redirect_from:
             </div>
             <div class="example" id="resource-method-typing">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -90,11 +90,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -199,7 +197,6 @@ redirect_from:
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run resource_method_typing.bal
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 </code></pre></div>
 
                                 </div>
@@ -249,10 +246,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

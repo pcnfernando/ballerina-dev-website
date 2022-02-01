@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Consuming Services&#58; Client Objects
 description: This BBE explains basics of consuming services in Ballerina.
 keywords: ballerina, ballerina by example, bbe, Client, Client Objects, HTTP Client, Consuming services
@@ -17,7 +17,7 @@ redirect_from:
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
     <span class="c1">// A client object is created by applying `new` to a client class.</span>
-    <span class="nx">http</span><span class="p">:</span><span class="nx">Client</span> <span class="nx">httpClient</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">new</span> <span class="p">(</span><span class="s">&quot;https://api.github.com/&quot;</span><span class="p">);</span>
+    <span class="nx">http</span><span class="p">:</span><span class="nx">Client</span> <span class="nx">httpClient</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">new</span> <span class="p">(</span><span class="s">&quot;https://api.github.com&quot;</span><span class="p">);</span>
 
     <span class="c1">// The remote method calls use the `-&gt;` syntax. This enables the sequence diagram view.</span>
     <span class="nx">http</span><span class="p">:</span><span class="nx">Response</span> <span class="nx">resp</span> <span class="p">=</span>
@@ -45,14 +45,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="documentation.html">
+                                    <a class="prev" href="annotations.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Documentation</p>
+                                        <p>Annotations</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="providing-services.html">
+                                    <a class="next" href="providing-services.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Providing Services</p>
                                     </a>
@@ -65,9 +65,9 @@ redirect_from:
             </div>
             <div class="example" id="consuming-services">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -78,16 +78,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=14bb9c7da82c369a9119f444a82ceebf&file=consuming_services.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=9cf1e65190134d97c509b9f1fcfc6019&file=consuming_services.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -122,7 +120,7 @@ import ballerina/io;
                             <div class="cTR hover-enable">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>    http:Client httpClient = check new (&quot;https://api.github.com/&quot;);
+                                    <div class="highlight"><pre><code class=language-ballerina>    http:Client httpClient = check new (&quot;https://api.github.com&quot;);
 </code></pre></div>
 
                                 </div>
@@ -212,10 +210,14 @@ import ballerina/io;
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

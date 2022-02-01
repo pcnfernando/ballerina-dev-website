@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Cache Basics
 description: This BBE shows how to perform basic in-memory caching operations with the "Least Recently Used" algorithm in Ballerina.
 keywords: ballerina, ballerina by examples, BBE, cache, put, get, size, hasKey
@@ -57,14 +57,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="time-formatting-and-parsing.html">
+                                    <a class="prev" href="time-formatting-and-parsing.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Time formatting/Parsing</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="cache-invalidation.html">
+                                    <a class="next" href="cache-invalidation.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Cache Invalidation</p>
                                     </a>
@@ -77,9 +77,9 @@ redirect_from:
             </div>
             <div class="example" id="cache-basics">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -90,16 +90,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=72ef95dc3eb97795a98a440c837f13c6&file=cache_basics.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=6710823f5aaf6d6af89f59e0071ce612&file=cache_basics.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -294,10 +292,14 @@ The cache size: 2
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

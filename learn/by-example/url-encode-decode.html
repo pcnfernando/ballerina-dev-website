@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: URL Encode/Decode Operations
 description: BBE on how to perform encoding/decoding a URL or part of a URL.
 keywords: ballerina, ballerina by example, url encoding, url decoding
@@ -45,14 +45,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="security-jwt-issue-validate.html">
+                                    <a class="prev" href="security-jwt-issue-validate.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>JWT Issue/Validate</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="time-utc.html">
+                                    <a class="next" href="time-utc.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>UTC Time</p>
                                     </a>
@@ -65,9 +65,9 @@ redirect_from:
             </div>
             <div class="example" id="url-encode-decode">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -78,16 +78,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=7fa85d43b5da41be94bc6ba6ddeb40a1&file=url_encode_decode.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=a92811fdf605b62d5648437f678d3040&file=url_encode_decode.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -215,10 +213,14 @@ URL decoded value: data=value
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

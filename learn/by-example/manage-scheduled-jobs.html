@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Manage Scheduled Jobs
 description: This BBE shows how to manage the scheduled jobs in Ballerina.
 keywords: ballerina, ballerina by example, BBE, task, job, scheduler
@@ -51,7 +51,7 @@ redirect_from:
     <span class="nx">task</span><span class="p">:</span><span class="nx">JobId</span> <span class="nx">id2</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleJobRecurByFrequency</span><span class="p">(</span>
                             <span class="nx">new</span> <span class="nx">Job</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;2nd Job&quot;</span><span class="p">),</span> <span class="mi">3</span><span class="p">);</span>
     <span class="c1">// Schedules the one-time job at the specified time.</span>
-    <span class="nx">task</span><span class="p">:</span><span class="nx">JobId</span> <span class="nx">id3</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleOneTimeJob</span><span class="p">(</span><span class="nx">new</span> <span class="nx">Job</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;3rd Job&quot;</span><span class="p">),</span> <span class="nx">time</span><span class="p">);</span>
+    <span class="nx">_</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">task</span><span class="p">:</span><span class="nx">scheduleOneTimeJob</span><span class="p">(</span><span class="nx">new</span> <span class="nx">Job</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;3rd Job&quot;</span><span class="p">),</span> <span class="nx">time</span><span class="p">);</span>
 
     <span class="c1">// Waits for 3 seconds.</span>
     <span class="nx">runtime</span><span class="p">:</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
@@ -101,14 +101,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="task-one-time-job-execution.html">
+                                    <a class="prev" href="task-one-time-job-execution.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Schedule one time job</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="uuid-generation.html">
+                                    <a class="next" href="uuid-generation.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Generate UUID</p>
                                     </a>
@@ -121,9 +121,9 @@ redirect_from:
             </div>
             <div class="example" id="manage-scheduled-jobs">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -134,16 +134,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=9d9e2e50fd1466f9929e1b8d1c3ad0b9&file=manage_scheduled_jobs.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=6a7f1c57d8ecb0128e9f102da0b58fb4&file=manage_scheduled_jobs.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -330,7 +328,7 @@ import ballerina/time;
                             <div class="cTR hover-enable">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>    task:JobId id3 = check task:scheduleOneTimeJob(new Job(0, &quot;3rd Job&quot;), time);
+                                    <div class="highlight"><pre><code class=language-ballerina>    _ = check task:scheduleOneTimeJob(new Job(0, &quot;3rd Job&quot;), time);
 </code></pre></div>
 
                                 </div>
@@ -563,10 +561,14 @@ No of running jobs: 2
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

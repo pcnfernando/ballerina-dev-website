@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Readonly and Isolated
 description: This BBE introduces readonly and isolated in Ballerina.
 keywords: ballerina, ballerina by example, bbe, readonly, isolated
@@ -15,6 +15,7 @@ redirect_from:
                 <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="o">/</span><span class="nx">io</span><span class="p">;</span>
 
 <span class="nx">type</span> <span class="nx">Entry</span> <span class="kt">map</span><span class="p">&lt;</span><span class="kt">json</span><span class="p">&gt;;</span>
+
 <span class="nx">type</span> <span class="nx">RoMap</span> <span class="nx">readonly</span> <span class="o">&amp;</span> <span class="kt">map</span><span class="p">&lt;</span><span class="nx">Entry</span><span class="p">&gt;;</span>
 
 <span class="nx">final</span> <span class="nx">RoMap</span> <span class="nx">m</span> <span class="p">=</span> <span class="nx">loadMap</span><span class="p">();</span>
@@ -50,7 +51,7 @@ redirect_from:
                     <tr>
                         <td class="cLeftTD">
                             <h2>Readonly and Isolated</h2>
-                            <p><p><code>isolated</code> functions can access <code>final</code> variables with <code>readonly</code> type without locking. Relies on the fact that
+                            <p><p><code>isolated</code> functions can access <code>final</code> variables with <code>readonly</code> type without locking. It relies on the fact that
  immutability is deep. <code>isolated</code> for functions complements <code>readonly</code> for data.</p>
 </p>
 
@@ -59,14 +60,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="readonly-type.html">
+                                    <a class="prev" href="readonly-type.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Readonly Type</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="combining-isolated-functions-and-lock.html">
+                                    <a class="next" href="combining-isolated-functions-and-lock.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Combining Isolated Functions and Lock</p>
                                     </a>
@@ -79,9 +80,9 @@ redirect_from:
             </div>
             <div class="example" id="readonly-and-isolated">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -92,16 +93,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=1acd225d303064c80d593f0b629e4b92&file=readonly_and_isolated.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=54557dcd6a3470ac9ff9751bedda0448&file=readonly_and_isolated.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -124,7 +123,18 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>type Entry map&lt;json&gt;;
-type RoMap readonly &amp; map&lt;Entry&gt;;
+</code></pre></div>
+
+                                </div>
+                                <div class="docs">
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="cTR">
+
+                                <div class="code leading">
+                                    <div class="highlight"><pre><code class=language-ballerina>type RoMap readonly &amp; map&lt;Entry&gt;;
 </code></pre></div>
 
                                 </div>
@@ -266,10 +276,14 @@ type RoMap readonly &amp; map&lt;Entry&gt;;
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

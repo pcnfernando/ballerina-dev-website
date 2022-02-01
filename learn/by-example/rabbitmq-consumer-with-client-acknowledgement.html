@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Client Acknowledgements
 description: BBE on manually acknowledging the messages consumed from a RabbitMQ queue using Ballerina.
 keywords: ballerina, ballerina by example, rabbitmq, consumer, bbe, acknowledgment
@@ -27,14 +27,14 @@ redirect_from:
 <span class="c1">// Attaches the service to the listener.</span>
 <span class="kd">service</span> <span class="nx">rabbitmq</span><span class="p">:</span><span class="nx">Service</span> <span class="nx">on</span> <span class="nx">channelListener</span> <span class="p">{</span>
     <span class="nx">remote</span> <span class="kd">function</span> <span class="nx">onMessage</span><span class="p">(</span><span class="nx">rabbitmq</span><span class="p">:</span><span class="nx">Message</span> <span class="kt">message</span><span class="p">,</span>
-                                                    <span class="nx">rabbitmq</span><span class="p">:</span><span class="nx">Caller</span> <span class="nx">caller</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">rabbitmq</span><span class="p">:</span><span class="nx">Caller</span> <span class="nx">caller</span><span class="p">)</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
         <span class="kt">string</span><span class="p">|</span><span class="nx">error</span> <span class="nx">messageContent</span> <span class="p">=</span> <span class="kt">string</span><span class="p">:</span><span class="nx">fromBytes</span><span class="p">(</span><span class="kt">message</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span>
         <span class="k">if</span> <span class="nx">messageContent</span> <span class="nx">is</span> <span class="kt">string</span> <span class="p">{</span>
             <span class="nx">log</span><span class="p">:</span><span class="nx">printInfo</span><span class="p">(</span><span class="s">&quot;Received message: &quot;</span> <span class="o">+</span> <span class="nx">messageContent</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="c1">// Positively acknowledges a single message.</span>
-        <span class="nx">rabbitmq</span><span class="p">:</span><span class="nx">Error</span><span class="err">?</span> <span class="nx">result</span> <span class="p">=</span> <span class="nx">caller</span><span class="o">-&gt;</span><span class="nx">basicAck</span><span class="p">();</span>
+        <span class="nx">check</span> <span class="nx">caller</span><span class="o">-&gt;</span><span class="nx">basicAck</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -60,14 +60,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="rabbitmq-consumer.html">
+                                    <a class="prev" href="rabbitmq-consumer.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Consumer</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="rabbitmq-transaction-producer.html">
+                                    <a class="next" href="rabbitmq-transaction-producer.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Transactional Producer</p>
                                     </a>
@@ -80,9 +80,9 @@ redirect_from:
             </div>
             <div class="example" id="rabbitmq-consumer-with-client-acknowledgement">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -94,11 +94,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -159,7 +157,7 @@ import ballerinax/rabbitmq;
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>service rabbitmq:Service on channelListener {
     remote function onMessage(rabbitmq:Message message,
-                                                    rabbitmq:Caller caller) {
+                            rabbitmq:Caller caller) returns error? {
         string|error messageContent = string:fromBytes(message.content);
         if messageContent is string {
             log:printInfo(&quot;Received message: &quot; + messageContent);
@@ -182,7 +180,7 @@ import ballerinax/rabbitmq;
                             <div class="cTR hover-enable">
 
                                 <div class="code">
-                                    <div class="highlight"><pre><code class=language-ballerina>        rabbitmq:Error? result = caller-&gt;basicAck();
+                                    <div class="highlight"><pre><code class=language-ballerina>        check caller-&gt;basicAck();
     }
 }
 </code></pre></div>
@@ -211,7 +209,6 @@ import ballerinax/rabbitmq;
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run rabbitmq_consumer_with_client_acknowledgement.bal
-[ballerinax/rabbitmq] Consumer service started for queue MyQueue
 time = 2021-05-20T14:53:56.067+05:30 level = INFO module = &quot;&quot; message = &quot;Received message: Hello from Ballerina&quot;
 </code></pre></div>
 
@@ -242,10 +239,14 @@ time = 2021-05-20T14:53:56.067+05:30 level = INFO module = &quot;&quot; message 
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

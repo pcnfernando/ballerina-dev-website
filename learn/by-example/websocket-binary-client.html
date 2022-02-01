@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Handle Binary Messages with Client
 description: This BBE demonstrates how a WebSocket client can be used to connect to and interact with a WebSocket server using Ballerina.
 keywords: ballerina, ballerina by example, bbe, websocket, sync, client
@@ -47,16 +47,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="websocket-text-client.html">
+                                    <a class="prev" href="websocket-text-client.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Handle Text Messages with Client</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="websocket-basic-sample.html">
+                                    <a class="next" href="websocket-retry-client.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Listener Functionalities</p>
+                                        <p>Retry</p>
                                     </a>
                                 </div>
                                 
@@ -67,9 +67,9 @@ redirect_from:
             </div>
             <div class="example" id="websocket-binary-client">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -79,17 +79,11 @@ redirect_from:
                                             <a target="_blank" href="https://github.com/ballerina-platform/ballerina-distribution/tree/master/examples/websocket-binary-client/"><img src="/img/github-logo-green.svg" /></a>
                                         </li>
                                         
-                                        <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=3d55aa13f6554106ebc627a752b1f699&file=websocket_binary_client.bal"><img src="/img/main-play-green-btn.svg" /></a>
-                                        </li>
-                                        
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -234,10 +228,14 @@ import ballerina/websocket;
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

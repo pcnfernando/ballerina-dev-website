@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Identifiers
 description: This BBE introduces identifiers in Ballerina.
 keywords: ballerina, ballerina by example, bbe, identifiers
@@ -24,7 +24,7 @@ redirect_from:
 <span class="c1">// Prefix reserved keywords with a single quote.</span>
 <span class="kt">string</span> <span class="err">&#39;</span><span class="nx">from</span> <span class="p">=</span> <span class="s">&quot;contact@ballerina.io&quot;</span><span class="p">;</span>
 
-<span class="c1">// Prefix non-identifier character with a \.</span>
+<span class="c1">// Prefix non-identifier character with a \\.</span>
 <span class="kt">string</span> <span class="nx">first</span><span class="err">\</span> <span class="nx">name</span> <span class="p">=</span> <span class="s">&quot;Ballerina&quot;</span><span class="p">;</span>
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
@@ -47,14 +47,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="functions.html">
+                                    <a class="prev" href="variables-and-types.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Functions</p>
+                                        <p>Variables and Types</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="integers.html">
+                                    <a class="next" href="integers.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Integers</p>
                                     </a>
@@ -67,9 +67,9 @@ redirect_from:
             </div>
             <div class="example" id="identifiers">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -80,16 +80,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=efaa0f33da6cfca11ee4591464637304&file=identifiers.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=2fac46d95cc92051f0f90aa88aeb6bbe&file=identifiers.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -188,7 +186,7 @@ redirect_from:
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Prefix non-identifier character with a .</p>
+                                            <p>Prefix non-identifier character with a \.</p>
 
                                         </div>
                                     </div>
@@ -251,10 +249,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

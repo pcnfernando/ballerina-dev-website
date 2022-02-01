@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Generate UUID
 description: BBE on how to to generate different types of UUIDs.
 keywords: ballerina, ballerina by examples, bbe, uuid, type
@@ -79,14 +79,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="manage-scheduled-jobs.html">
+                                    <a class="prev" href="manage-scheduled-jobs.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Manage Scheduled Jobs</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="uuid-operations.html">
+                                    <a class="next" href="uuid-operations.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>UUID Operations</p>
                                     </a>
@@ -99,9 +99,9 @@ redirect_from:
             </div>
             <div class="example" id="uuid-generation">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -112,16 +112,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=b75c7370d9656e83cfa129f727995e2b&file=uuid_generation.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=c92dec6f5b6b79d4c8e1d2bd87c2aeb2&file=uuid_generation.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -408,10 +406,14 @@ Nil UUID as a record: {&quot;timeLow&quot;:0,&quot;timeMid&quot;:0,&quot;timeHiA
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

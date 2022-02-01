@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Request With Multiparts
 description: BBE on how Ballerina supports encoding and decoding multipart content in HTTP requests along with nested parts.
 keywords: ballerina, ballerina by example, bbe, mime, multiparts, entity
@@ -136,14 +136,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="http-response-with-multiparts.html">
+                                    <a class="prev" href="http-response-with-multiparts.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Response With Multiparts</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="http-passthrough.html">
+                                    <a class="next" href="http-passthrough.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Passthrough</p>
                                     </a>
@@ -156,9 +156,9 @@ redirect_from:
             </div>
             <div class="example" id="http-request-with-multiparts">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -170,11 +170,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -560,7 +558,6 @@ import ballerina/mime;
                                     <div class="highlight"><pre><code class=shell-session># In the directory, which contains the `.bal` file, create a directory named `file`,
 # and add an XML files named `test.xml` in it.
 bal run request_with_multiparts.bal
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 time = 2021-01-21 22:00:17,167 level = INFO  module = &quot;&quot; message = &quot;{&quot;name&quot;:&quot;ballerina&quot;}&quot;
 time = 2021-01-21 22:01:18,466 level = INFO  module = &quot;&quot; message = &quot;{&quot;name&quot;:&quot;wso2&quot;}&quot;
 time = 2021-01-21 22:01:18,682 level = INFO  module = &quot;&quot; message = &quot;&lt;ballerinalang&gt;
@@ -697,10 +694,14 @@ content-id: 1
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

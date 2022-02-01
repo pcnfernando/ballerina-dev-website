@@ -2,12 +2,11 @@
 layout: ballerina-inner-page
 title: The Ballerina Community
 intro: We warmly welcome all contributors to the Ballerina community to help establish Ballerina as a truly community-owned resource!
+description: We warmly welcome all contributors to the Ballerina community to help establish Ballerina as a truly community-owned resource!.
 keywords: ballerina, community, ballerina community
-permalink: /community/
+permalink: /community-old/
 redirect_from:
-  - /events
-  - /events/
-  - /community
+  
 ---
 
 The Ballerina community has been bootstrapped by <a href="https://wso2.com" target="_blank">WSO2</a> via sponsorship of the design & implementation of the Ballerina platform. Ballerina is a fully open source project with all source code licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a> and the specifications licensed under the <a href="https://creativecommons.org/licenses/by-nd/4.0" target="_blank">Creative Commons Attribution-NoDerivatives 4.0 International</a> license.
@@ -23,7 +22,7 @@ The Ballerina community has been bootstrapped by <a href="https://wso2.com" targ
 We curate a periodic newsletter on Ballerina with hand-picked content and regular updates on the language.
 
 <ul class="cInlinelinklist">
-<li><a class="cGreenLinkArrow" href="/community/newsletter/2021-1/" target="_blank">Latest Ballerina Newsletter</a></li>
+<li><a class="cGreenLinkArrow" href="/community/newsletter/2021-6/" target="_blank">Latest Ballerina Newsletter</a></li>
 <li><a class="cGreenLinkArrow" href="/community/newsletter/#past-issues" target="_blank">Past newsletter issues</a></li>
 
 </ul>
@@ -52,8 +51,6 @@ Interested? Subscribe to it below:
 ## Join the Community Call
 
 The Ballerina team is now hosting monthly recorded Community Calls! These are interactive meetings that will explore Ballerina use cases. These calls give you direct access to our Engineers and other community members to question or discuss about Ballerina and your projects.
-
-- Get information on the <a href="https://docs.google.com/document/d/1TPi0ktNvk-gQhVh46ckP5_LyhvwLJSQ3NJeSfv8459A/edit" target="_blank">past and upcoming calls</a>.
 
 - Be notified about the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJkkaXmOf-ULhZ1Oi7bXAG_UmieRQ3wF8mKDohWux-8Ltfsw/viewform" target="_blank">details of the upcoming community calls</a>.
 
@@ -92,10 +89,11 @@ We are happy to help! Come engage with us on any channel that works for you.
 
 Report issues in the GitHub repositories of the areas and components listed below.
 
-- <a href="https://github.com/ballerina-platform/ballerina-lang/issues/new/choose" target="_blank">Compiler, runtime, or tooling</a>
-- <a href="https://github.com/ballerina-platform/ballerina-standard-library/issues" target="_blank">Standard Library</a>
-- <a href="https://github.com/ballerina-platform/ballerina-standard-library/issues/new/choose" target="_blank">Language specification</a>
-- <a href="https://github.com/ballerina-platform/ballerina-dev-website/issues/new/choose" target="_blank">Website</a>
+- <a href="https://github.com/ballerina-platform/ballerina-lang/issues/new/choose" target="_blank">Compiler, runtime, and CLI tooling</a>
+- <a href="https://github.com/ballerina-platform/ballerina-standard-library/issues/new/choose" target="_blank">Standard Library</a>
+- <a href="https://github.com/wso2/ballerina-plugin-vscode/issues/new/choose" target="_blank">Ballerina Visual Studio Code extension</a>
+- <a href="https://github.com/ballerina-platform/ballerina-spec/issues/new" target="_blank">Platform specifications</a>
+- <a href="https://github.com/ballerina-platform/ballerina-dev-website/issues/new/choose" target="_blank">Website, Ballerina Central, API Docs</a>
 - <a href="mailto:security@ballerina.io" target="_blank">Security</a> (For details, see the <a href="/security" target="_blank">security policy</a>.)
 
 ## Help Us Grow
@@ -108,7 +106,7 @@ If you like the experience so far, help us to spread the word.
 - Share the wealth by publishing your Ballerina module on <a href="https://central.ballerina.io" target="_blank">Ballerina Central</a> so that the whole community can benefit from your work.
 - Write your own blog and submit it to be published in our <a href="https://medium.com/ballerina-techblog" target="_blank">community-driven Tech Blog</a>.
 - Buzz us on <a href="mailto:contact@ballerina.io" target="_blank">contact@ballerina.io</a> if you want to organize a local meetup or hackathon. WSO2 will get right on it and help with presentation/training content, logistics, swag, and some funds for munchies.
-- Download any file of the <a href="https://github.com/ballerina-platform/ballerina-dev-website/tree/master/ballerina-logos" target="_blank">Ballerina logo</a> to use for content or swag.
+- Download the <a href="/trademark-usage-policy/#the-ballerina-logo" target="_blank">Ballerina logo</a> to use for content or swag.
 - Use the <a href="https://github.com/marketplace/actions/ballerina-action" target="_blank"> GitHub Action for the Ballerina CLI</a> to wrap Ballerina commands inside GitHub Actions.
 
 <!-- ## Want to be kept up-to-date?
@@ -259,10 +257,8 @@ body {font-family: Arial;}
          <span class="cEventDate">June 15 - 16, 2021</span>	
          <p class="cEventLocation">Online</p>	
       </td>	
-      <td class="cEventDetail">	
-         <a target="_blank" href="https://www.wurreka.com/ict/virtual-conference/gids-2021/">	
+      <td class="cEventDetail">		
             <h4>StackConf</h4>	
-         </a>	
          <h5>Automatic Microservices Observability with Open-Source Programming Language: Ballerina</h5>
          <b>Anjana Fernando,</b> Director - Developer Relations, WSO2
       </td>	
@@ -273,28 +269,22 @@ body {font-family: Arial;}
          <span class="cEventDate">April 27 - 30, 2021</span>	
          <p class="cEventLocation">Online</p>	
       </td>	
-      <td class="cEventDetail">	
-         <a target="_blank" href="https://www.wurreka.com/ict/virtual-conference/gids-2021/">	
-            <h4>GIDS Live</h4>	
-         </a>	
+      <td class="cEventDetail">		
+            <h4>GIDS Live</h4>		
          <h5>Cloud Native Middleware as a Programming Language</h5>
          <b>Anjana Fernando,</b> Senior Director - Solutions Architecture, WSO2
       </td>	
-      <td class="cEventURL"><a class="cEventRegistration" href="https://wurreka.com/watch/gids-2021/cloud-native-middleware-as-a-programming-language" target="_blank">View Video</a></td>	
    </tr>
     <tr class="event-expiry" style="display:none" data-expiry="">	
       <td class="cEventDateContainer">	
          <span class="cEventDate">April 27 - 30, 2021</span>	
          <p class="cEventLocation">Online</p>	
       </td>	
-      <td class="cEventDetail">	
-         <a target="_blank" href="https://www.wurreka.com/ict/virtual-conference/gids-2021/">	
+      <td class="cEventDetail">		
             <h4>GIDS Live</h4>	
-         </a>
          <h5>Automatic Microservices Observability with Open-Source Programming Language: Ballerina</h5>
          <b>Anjana Fernando,</b> Senior Director - Solutions Architecture, WSO2
       </td>	
-      <td class="cEventURL"><a class="cEventRegistration" href="https://wurreka.com/watch/gids-2021/automatic-microservices-observability-with-open-source-progr" target="_blank">View Video</a></td>	
    </tr>
    <tr class="event-expiry" style="display:none" data-expiry="">	
       <td class="cEventDateContainer">	
@@ -415,13 +405,10 @@ body {font-family: Arial;}
          <p class="cEventLocation">Virtual</p>
       </td>
       <td class="cEventDetail">
-         <a target="_blank" href="https://novacodecamp.org/app/speakers/aa20c381-1fa5-42c6-8095-a01ca1bab0b7">
             <h4>Nova Code Camp</h4>
-         </a>
          <h5>Let's Dance Together! Ballerina</h5>
          <b>Vanjikumaran Sivajothy,</b> Senior Lead Solutions Engineer, WSO2
       </td>
-      <td class="cEventURL"><a class="cEventRegistration" href="https://novacodecamp.org/app/speakers/aa20c381-1fa5-42c6-8095-a01ca1bab0b7" target="_blank">More Info</a></td>
    </tr>
    <tr class="event-expiry" style="display:none" data-expiry="">
       <td class="cEventDateContainer">
@@ -443,9 +430,9 @@ body {font-family: Arial;}
          <p class="cEventLocation">Online</p>
       </td>
       <td class="cEventDetail">
-         <a target="_blank" href="https://www.meetup.com/CloudDC/">
+         <!-- <a target="_blank" href="https://www.meetup.com/CloudDC/"> -->
             <h4>Cloud DC Meetup</h4>
-         </a>
+         <!-- </a> -->
          <h5>Cloud Native Development with Ballerina</h5>
          <b>Jadd Jennings,</b> Hub Solutions Engineer, Oracle Cloud Solution Hub<br/>
          <b>Dhvani Sheth,</b> Senior Solutions Engineer, Oracle
@@ -696,10 +683,8 @@ body {font-family: Arial;}
          <p class="cEventLocation">Las Vegas, Nevada, USA</p>
       </td>
       <td class="cEventDetail">
-         <a target="_blank" href="https://apachecon.com/acna19/s/#/schedule">
-            <h4>ApacheCon North America 2019</h4>
-         </a>
-         <h5>Ballerina - Re-inventing Middleware in a Programming Language</h5>
+       <h4>ApacheCon North America 2019</h4>
+       <h5>Ballerina - Re-inventing Middleware in a Programming Language</h5>
          <b>Paul Fremantle,</b> CTO and Co-founder, WSO2
       </td>
       <td class="cEventURL"><a class="cEventRegistration" href="https://www.slideshare.net/BallerinaLang/apachecon-na-2019-reinventing-middleware-in-a-programming-language" target="_blank">View Slides</a></td>
@@ -710,9 +695,7 @@ body {font-family: Arial;}
          <p class="cEventLocation">Las Vegas, Nevada, USA</p>
       </td>
       <td class="cEventDetail">
-         <a target="_blank" href="https://apachecon.com/acna19/s/#/schedule">
             <h4>ApacheCon North America 2019</h4>
-         </a>
          <h5>Conquering Network Distributed Applications Using the Ballerina Programming Language</h5>
          <b>Anjana Fernando,</b> Director of Developer Relations - CTO Office, WSO2
       </td>

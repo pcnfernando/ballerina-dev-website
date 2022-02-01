@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Time with Zone Offset
 description: BBE on how to convert a given UTC time to a civil record vice versa.
 keywords: ballerina, ballerina by examples, bbe, time, utc, civil
@@ -61,14 +61,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="time-utc.html">
+                                    <a class="prev" href="time-utc.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>UTC Time</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="time-formatting-and-parsing.html">
+                                    <a class="next" href="time-formatting-and-parsing.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Time formatting/Parsing</p>
                                     </a>
@@ -81,9 +81,9 @@ redirect_from:
             </div>
             <div class="example" id="time-utc-and-civil">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -94,16 +94,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=4aaca297f6dbfd54dcb4012fd52cc92d&file=time_utc_and_civil.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=8ecc7f1268e68c0c4285e4078b0916ee&file=time_utc_and_civil.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -222,7 +220,7 @@ import ballerina/time;
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run time_utc_and_civil.bal
 Civil record: {&quot;timeAbbrev&quot;:&quot;Z&quot;,&quot;dayOfWeek&quot;:1,&quot;year&quot;:2021,&quot;month&quot;:5,&quot;day&quot;:24,&quot;hour&quot;:7,&quot;minute&quot;:7,&quot;second&quot;:15.757818}
-UTC value of the civil record: 1618269650 0.52
+UTC value of the civil record: [1618269650,0.52]
 </code></pre></div>
 
                                 </div>
@@ -252,10 +250,14 @@ UTC value of the civil record: 1618269650 0.52
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

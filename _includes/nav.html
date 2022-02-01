@@ -9,16 +9,46 @@
         text-align: center;
         font-weight: 600;
         font-size: 20px;
+        transition : all 0.3s;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 69019f41480c7e2fc78aba503409877c1da980b5
+    .cInfoBannerVersionHandling {
+        background:  #494949;
+        width: 100%;
+        display: inline-block;
+        color: #fff;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        font-weight: 400;
+        font-size: 17px;
+        transition : all 0.3s;
+    }
+    .cInfoBannerLink{font-weight: 500;font-size: 18px;color: #20b6b0;}
+    .cInfoBannerLink:hover{text-decoration: underline !important;color: #c0c0c0!important;}
     .cInfoBanner:hover {
-        background-color: #1b7e7a;
-        color: #fff !important;
+        background-color: #c0c0c0;
+        color: #494949 !important;
+    } 
+    #noscript-warning{
+        position: relative;
+    text-align: center;
+    padding: 7px 15px;
+    background-color: #57595d;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     }
 </style>
-<a href="https://ballerina.io/downloads/" class="cInfoBanner">
-    Swan Lake Beta1 is here.
-</a>
+<noscript>
+    <div id="noscript-warning">Ballerina works best with JavaScript enabled.</div>
+</noscript>
+ <a href="https://ballerina.io/downloads/" class="cInfoBanner">
+    Ballerina 2201.0.0 (Swan Lake) is here.
+</a> 
 <div class="row cBallerina-io-Nav" id="iMainNavigation">
 
     <div class="container">
@@ -42,7 +72,7 @@
                             <li class="toctree-l1" id="playli"><a class="cBioTopLink" href="https://play.ballerina.io/"
                                     target="_blank">Playground</a>
                             </li>
-                            <li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Docs</a>
+                            <li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Learn</a>
                             </li>
                             <!--<li class="active toctree-l1" id="eventsli"><a class="cBioTopLink" href="/learn/events">Events</a>
                             </li>-->
@@ -66,9 +96,11 @@
                                 </div>
                             </li>
                             <li class="cSearchMenu">
-                                <form class="cSearch-form-inline"><input id="searchTxt" class="form-control-field"
+                               
+                                {% include algolia-open-source.html %}
+                                <!-- <form class="cSearch-form-inline"><input id="searchTxt" class="form-control-field"
                                         type="search" placeholder="Search" aria-label="Search"><a id="searchBtn"
-                                        href="#" class="cSearchButton"><img src="/img/search.svg" /></a></form>
+                                        href="#" class="cSearchButton"><img src="/img/search.svg" /></a></form> -->
                             </li>
                         </ul>
                     </div>

@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Langlib Functions
 description: This BBE introduces Langlib modules in Ballerina
 keywords: ballerina, ballerina by example, bbe, langlib, module, Language, Library
@@ -22,9 +22,11 @@ redirect_from:
 
     <span class="c1">// `n` will be 1.</span>
     <span class="kt">int</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
 
     <span class="c1">// `s.length()` is same as `string:length(s)`.</span>
     <span class="kt">int</span> <span class="nx">m</span> <span class="p">=</span> <span class="kt">string</span><span class="p">:</span><span class="nx">length</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">m</span><span class="p">);</span>
 
 <span class="p">}</span>
 </pre></div>
@@ -47,14 +49,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="strings.html">
+                                    <a class="prev" href="while-statement.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Strings</p>
+                                        <p>While Statement</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="arrays.html">
+                                    <a class="next" href="arrays.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Arrays</p>
                                     </a>
@@ -67,9 +69,9 @@ redirect_from:
             </div>
             <div class="example" id="langlib-functions">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -80,16 +82,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=292365c1f719e52146c3a7068bf96ae3&file=langlib_functions.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=032faa8e6c5a48dc884a6514c9d3400b&file=langlib_functions.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -155,6 +155,7 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    int n = s.length();
+    io:println(n);
 </code></pre></div>
 
                                 </div>
@@ -174,6 +175,7 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    int m = string:length(s);
+    io:println(m);
 </code></pre></div>
 
                                 </div>
@@ -213,6 +215,8 @@ redirect_from:
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run langlib_functions.bal
 b
+1
+1
 </code></pre></div>
 
                                 </div>
@@ -242,10 +246,14 @@ b
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

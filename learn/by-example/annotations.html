@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Annotations
 description: This BBE demonstrates how to use annotations in Ballerina
 keywords: ballerina, ballerina by example, bbe, annotations,
@@ -13,18 +13,19 @@ redirect_from:
         <div class="container cBallerinaBySampleContainer">
             <div class="FullCode">
                 <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="o">/</span><span class="nx">io</span><span class="p">;</span>
+
 <span class="c1">// The `@display` annotation applies to the transform function.</span>
 <span class="nd">@display {</span>
     <span class="nx">label</span><span class="p">:</span> <span class="s">&quot;Transform&quot;</span><span class="p">,</span>
     <span class="nx">iconPath</span><span class="p">:</span> <span class="s">&quot;transform.png&quot;</span>
 <span class="p">}</span>
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">transform</span><span class="p">(</span><span class="kt">string</span> <span class="nx">s</span><span class="p">)</span> <span class="nx">returns</span> <span class="kt">string</span> <span class="p">{</span>
-   <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">toUpperAscii</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">toUpperAscii</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// The `@strand` annotation applies to the `start` action.</span>
-    <span class="nx">future</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="nx">fut</span> <span class="p">=</span> <span class="nd">@strand {</span> <span class="nx">thread</span><span class="p">:</span> <span class="s">&quot;any&quot;</span> <span class="p">}</span> <span class="nx">start</span> <span class="nx">foo</span><span class="p">();</span>
+    <span class="nx">future</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="nx">fut</span> <span class="p">=</span> <span class="nd">@strand {</span><span class="nx">thread</span><span class="p">:</span> <span class="s">&quot;any&quot;</span><span class="p">}</span> <span class="nx">start</span> <span class="nx">foo</span><span class="p">();</span>
 
     <span class="kt">int</span><span class="p">|</span><span class="nx">error</span> <span class="nx">x</span> <span class="p">=</span> <span class="nx">wait</span> <span class="nx">fut</span><span class="p">;</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
@@ -44,7 +45,7 @@ redirect_from:
                             <h2>Annotations</h2>
                             <p><p>Annotations start with <code>@tag</code> and they come before what they apply to.
  Unprefixed tags refer to standard platform-defined annotations and
- Prefixed tags refer to annotations declared in modules.
+ prefixed tags refer to annotations declared in modules.
  <code>@tag</code> can be followed by record constructor expression.</p>
 </p>
 
@@ -53,16 +54,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="asynchronous-function-calls.html">
+                                    <a class="prev" href="documentation.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Asynchronous Function Calls</p>
+                                        <p>Documentation</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="documentation.html">
+                                    <a class="next" href="consuming-services.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Documentation</p>
+                                        <p>Consuming Services: Client Objects</p>
                                     </a>
                                 </div>
                                 
@@ -73,9 +74,9 @@ redirect_from:
             </div>
             <div class="example" id="annotations">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -86,16 +87,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=d8878fc09fad3f2293d8e8e6b52acfde&file=annotations.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=43f21f941c49c6a80ab86447bab282da&file=annotations.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -122,7 +121,7 @@ redirect_from:
     iconPath: &quot;transform.png&quot;
 }
 public function transform(string s) returns string {
-   return s.toUpperAscii();
+    return s.toUpperAscii();
 }
 </code></pre></div>
 
@@ -154,7 +153,7 @@ public function transform(string s) returns string {
                             <div class="cTR hover-enable">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>    future&lt;int&gt; fut = @strand { thread: &quot;any&quot; } start foo();
+                                    <div class="highlight"><pre><code class=language-ballerina>    future&lt;int&gt; fut = @strand {thread: &quot;any&quot;} start foo();
 </code></pre></div>
 
                                 </div>
@@ -239,10 +238,14 @@ public function transform(string s) returns string {
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

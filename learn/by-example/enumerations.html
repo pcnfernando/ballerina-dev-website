@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Enumerations
 description: This BBE demonstrates enumerations in Ballerina.
 keywords: ballerina, ballerina by example, bbe, enum, enumerations
@@ -24,7 +24,9 @@ redirect_from:
 <span class="c1">//</span>
 <span class="c1">// `type Color RED|GREEN|BLUE;`</span>
 <span class="nx">enum</span> <span class="nx">Color</span> <span class="p">{</span>
-    <span class="nx">RED</span><span class="p">,</span> <span class="nx">GREEN</span><span class="p">,</span> <span class="nx">BLUE</span>
+    <span class="nx">RED</span><span class="p">,</span>
+    <span class="nx">GREEN</span><span class="p">,</span>
+    <span class="nx">BLUE</span>
 <span class="p">}</span>
 
 <span class="c1">// An `enum` member can explicitly specify an associated expression.</span>
@@ -56,16 +58,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="const-and-final.html">
+                                    <a class="prev" href="const-and-final.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Const and Final </p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="match-statement.html">
+                                    <a class="next" href="immutability.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Match Statement</p>
+                                        <p>Immutability</p>
                                     </a>
                                 </div>
                                 
@@ -76,9 +78,9 @@ redirect_from:
             </div>
             <div class="example" id="enumerations">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -89,16 +91,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=b52cac178f594de5ad5921f5efea5faf&file=enumerations.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=ce57c3dcf1ff6924e127727b30cebdf3&file=enumerations.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -121,7 +121,9 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>enum Color {
-    RED, GREEN, BLUE
+    RED,
+    GREEN,
+    BLUE
 }
 </code></pre></div>
 
@@ -226,10 +228,14 @@ English
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

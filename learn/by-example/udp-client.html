@@ -1,6 +1,6 @@
 ---
-layout: ballerina-example-page
-title: UDP Connectionless Client
+layout: ballerina-example-page-old
+title: Connectionless Client
 description: This Ballerina sample demonstrates how to send data to a remote UDP server.
 keywords: ballerina, ballerina by example, bbe, socket, udp
 permalink: /learn/by-example/udp-client
@@ -42,6 +42,7 @@ redirect_from:
 
     <span class="c1">// Closes the client and releases the bound port.</span>
     <span class="nx">check</span> <span class="nx">socketClient</span><span class="o">-&gt;</span><span class="nx">close</span><span class="p">();</span>
+
 <span class="p">}</span>
 </pre></div>
 
@@ -51,7 +52,7 @@ redirect_from:
                 <table class="cTopInfoContainer cTopControlsContainer">
                     <tr>
                         <td class="cLeftTD">
-                            <h2>UDP Connectionless Client</h2>
+                            <h2>Connectionless Client</h2>
                             <p><p>The UDP Client is used to send data to a specific remote host using the UDP protocol.
  This sample demonstrates how to send a datagram to a remote server
  and print the echoed response.<br/><br/>
@@ -64,16 +65,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="tcp-transport-security.html">
+                                    <a class="prev" href="tcp-transport-security.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>TCP Transport Security</p>
+                                        <p>Transport Security</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="udp-connect-client.html">
+                                    <a class="next" href="udp-connect-client.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>UDP Connection-Oriented Client</p>
+                                        <p>Connection-Oriented Client</p>
                                     </a>
                                 </div>
                                 
@@ -84,9 +85,9 @@ redirect_from:
             </div>
             <div class="example" id="udp-client">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -98,11 +99,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -218,9 +217,8 @@ import ballerina/udp;
                             
                             <div class="cTR hover-enable">
 
-                                <div class="code">
+                                <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    check socketClient-&gt;close();
-}
 </code></pre></div>
 
                                 </div>
@@ -232,6 +230,18 @@ import ballerina/udp;
 
                                         </div>
                                     </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="cTR">
+
+                                <div class="code">
+                                    <div class="highlight"><pre><code class=language-ballerina>}
+</code></pre></div>
+
+                                </div>
+                                <div class="docs">
                                     
                                 </div>
                             </div>
@@ -291,10 +301,14 @@ Received: Hello Ballerina echo
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

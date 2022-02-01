@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Read/Write Strings
 description: BBE on how to read/write from/to a text file.
 keywords: ballerina, ballerina by examples, bbe, text, strings
@@ -41,7 +41,7 @@ redirect_from:
     <span class="nx">stream</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="nx">io</span><span class="p">:</span><span class="nx">Error</span><span class="err">?</span><span class="p">&gt;</span> <span class="nx">lineStream</span> <span class="p">=</span> <span class="nx">check</span>
                                     <span class="nx">io</span><span class="p">:</span><span class="nx">fileReadLinesAsStream</span><span class="p">(</span><span class="nx">textFilePath3</span><span class="p">);</span>
     <span class="c1">// Iterates through the stream and prints the content.</span>
-    <span class="nx">error</span><span class="err">?</span> <span class="nx">e</span> <span class="p">=</span> <span class="nx">lineStream</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="kt">string</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">check</span> <span class="nx">lineStream</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="kt">string</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
                                <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
                            <span class="p">});</span>
 <span class="p">}</span>
@@ -64,14 +64,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="io-bytes.html">
+                                    <a class="prev" href="io-bytes.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Read/Write Bytes</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="io-csv.html">
+                                    <a class="next" href="io-csv.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Read/Write CSV</p>
                                     </a>
@@ -84,9 +84,9 @@ redirect_from:
             </div>
             <div class="example" id="io-strings">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -97,16 +97,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=5b893a6a4f77887bf94de0280678a5e4&file=io_strings.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=14caf99f2c8e5589afd132f25f32a3e7&file=io_strings.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -281,7 +279,7 @@ redirect_from:
                             <div class="cTR hover-enable">
 
                                 <div class="code">
-                                    <div class="highlight"><pre><code class=language-ballerina>    error? e = lineStream.forEach(function(string val) {
+                                    <div class="highlight"><pre><code class=language-ballerina>    check lineStream.forEach(function(string val) {
                                io:println(val);
                            });
 }
@@ -346,10 +344,14 @@ LOST
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

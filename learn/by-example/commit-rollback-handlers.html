@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Commit/Rollback Handlers
 description: This BBE introduces commit/rollback handlers in Ballerina
 keywords: ballerina, ballerina by example, bbe, transactions, commit, rollback, handlers, commit handlers, rollback handlers
@@ -19,6 +19,7 @@ redirect_from:
         <span class="nx">check</span> <span class="nx">update</span><span class="p">();</span>
         <span class="nx">check</span> <span class="nx">commit</span><span class="p">;</span>
     <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">transactional</span> <span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
@@ -26,11 +27,11 @@ redirect_from:
     <span class="c1">//  Registers a commit handler to be invoked when the `commit` is executed.</span>
     <span class="p">&#39;transaction:onCommit(</span><span class="nx">sendEmail</span><span class="p">);</span>
     <span class="p">&#39;transaction:onRollback(</span><span class="nx">logError</span><span class="p">);</span>
-
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">updateDatabase</span><span class="p">()</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Database updated&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">isolated</span> <span class="kd">function</span> <span class="nx">sendEmail</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">transaction</span><span class="p">:</span><span class="nx">Info</span> <span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
@@ -50,10 +51,12 @@ redirect_from:
                     <tr>
                         <td class="cLeftTD">
                             <h2>Commit/Rollback Handlers</h2>
-                            <p><p>Often code needs to get executed depending on whether a transaction committed.
- Testing the result of the commit within the transaction statement works, but inconvenient from a modularity perspective, particularly when you want to undo changes on rollback.
- This seems much worse in a distributed transaction, when transaction statement is in another program.
- Ballerina provides commit/rollback handlers which are functions that get run when decision whether to commit is known.</p>
+                            <p><p>Often code needs to get executed depending on whether a transaction is committed.
+ Testing the result of the <code>commit</code> within the transaction statement works. However, it is inconvenient
+ from a modularity perspective, particularly, when you want to undo changes on <code>rollback</code>.
+ This seems much worse in a distributed transaction when the transaction statement is in another program.
+ Ballerina provides <code>commit</code>/<code>rollback</code> handlers, which are functions that get executed when the decision
+ whether to commit is known.</p>
 </p>
 
                         </td>
@@ -61,14 +64,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="transactional-named-workers.html">
+                                    <a class="prev" href="transactional-named-workers.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Transactional Named Workers</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="lock-statement.html">
+                                    <a class="next" href="lock-statement.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Lock Statement</p>
                                     </a>
@@ -81,9 +84,9 @@ redirect_from:
             </div>
             <div class="example" id="commit-rollback-handlers">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -94,16 +97,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=9215104944f5cd2bfa4496cd3b86d417&file=commit_rollback_handlers.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=32a26391e1a92800e889efa6e5acea1c&file=commit_rollback_handlers.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -130,6 +131,7 @@ redirect_from:
         check update();
         check commit;
     }
+    return;
 }
 </code></pre></div>
 
@@ -157,6 +159,7 @@ redirect_from:
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    &#39;transaction:onCommit(sendEmail);
     &#39;transaction:onRollback(logError);
+}
 </code></pre></div>
 
                                 </div>
@@ -175,20 +178,9 @@ redirect_from:
                             <div class="cTR">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>}
-</code></pre></div>
-
-                                </div>
-                                <div class="docs">
-                                    
-                                </div>
-                            </div>
-                            
-                            <div class="cTR">
-
-                                <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>function updateDatabase() returns error? {
     io:println(&quot;Database updated&quot;);
+    return;
 }
 </code></pre></div>
 
@@ -269,10 +261,14 @@ Email sent.
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

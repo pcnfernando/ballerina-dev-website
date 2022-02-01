@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Panics
 description: This BBE demonstrates how abnormal errors are handled using panics in Ballerina
 keywords: ballerina, ballerina by example, bbe, error, panic
@@ -22,7 +22,7 @@ redirect_from:
         <span class="nx">panic</span> <span class="nx">error</span><span class="p">(</span><span class="s">&quot;division by 0&quot;</span><span class="p">);</span>
 
     <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">m</span><span class="o">/</span><span class="nx">n</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">m</span> <span class="o">/</span> <span class="nx">n</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
@@ -56,16 +56,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="error-subtyping.html">
+                                    <a class="prev" href="error-subtyping.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Error Subtyping</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="anydata-type.html">
+                                    <a class="next" href="ignoring-return-values-and-errors.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Anydata Type</p>
+                                        <p>Ignoring Return Values and Errors</p>
                                     </a>
                                 </div>
                                 
@@ -76,9 +76,9 @@ redirect_from:
             </div>
             <div class="example" id="panics">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -89,16 +89,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=157506bbefa8f2f086115332f9ae5955&file=panics.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=5e1043584a255cbeafad5d051be93737&file=panics.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -171,7 +169,7 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    }
-    return m/n;
+    return m / n;
 }
 </code></pre></div>
 
@@ -270,10 +268,14 @@ error: division by 0
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

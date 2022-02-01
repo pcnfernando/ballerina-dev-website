@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Temp Files and Directories
 description: This BBE shows how to perform file-system operations in Ballerina.
 keywords: ballerina, ballerina by examples, BBE, file, path, temp
@@ -48,14 +48,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="files.html">
+                                    <a class="prev" href="files.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Files</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="directory-listener.html">
+                                    <a class="next" href="directory-listener.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Directory Listener</p>
                                     </a>
@@ -68,9 +68,9 @@ redirect_from:
             </div>
             <div class="example" id="temp-files-directories">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -81,16 +81,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=5daa8b9ee31d7f8b6876f4e50e99c771&file=temp_files_directories.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=c6385b2dd021f32154218b47df69bb2b&file=temp_files_directories.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -226,10 +224,14 @@ Absolute path of the tmp file: /var/folders/f2/1s2f2mzd30ldl_fzxk4_gq3c0000gn/T/
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

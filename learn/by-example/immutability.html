@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Immutability
 description: This BBE demonstrates immutability in Ballerina.
 keywords: ballerina, ballerina by example, bbe, immutability
@@ -27,8 +27,8 @@ redirect_from:
 
         <span class="nx">grade</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
         <span class="nx">name</span><span class="p">:</span> <span class="s">&quot;John&quot;</span><span class="p">,</span>
-        <span class="c1">// The applicable contextually-expected type for `marks`.</span>
-        <span class="c1">// is now `map&lt;int&gt; &amp; readonly`. Thus the value for `marks`</span>
+        <span class="c1">// The applicable contextually-expected type for `marks`</span>
+        <span class="c1">// is now `map&lt;int&gt; &amp; readonly`. Thus, the value for `marks`</span>
         <span class="c1">// will be constructed as an immutable map.</span>
         <span class="nx">marks</span><span class="p">:</span> <span class="p">{</span>
             <span class="s">&quot;Maths&quot;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span>
@@ -60,16 +60,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="decimal-type.html">
+                                    <a class="prev" href="enumerations.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Decimal Type</p>
+                                        <p>Enumerations</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="any-type.html">
+                                    <a class="next" href="json-type.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Any Type</p>
+                                        <p>JSON Type</p>
                                     </a>
                                 </div>
                                 
@@ -80,9 +80,9 @@ redirect_from:
             </div>
             <div class="example" id="immutability">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -94,11 +94,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -192,8 +190,8 @@ redirect_from:
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>The applicable contextually-expected type for <code>marks</code>.
- is now <code>map&lt;int&gt; &amp; readonly</code>. Thus the value for <code>marks</code>
+                                            <p>The applicable contextually-expected type for <code>marks</code>
+ is now <code>map&lt;int&gt; &amp; readonly</code>. Thus, the value for <code>marks</code>
  will be constructed as an immutable map.</p>
 
                                         </div>
@@ -258,10 +256,14 @@ true
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

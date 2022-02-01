@@ -1,8 +1,8 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Limit Clause
 description: This BBE demonstrates limit clause in Ballerina.
-keywords: ballerina, ballerina by example, bbe, limit clause
+keywords: ballerina, ballerina by example, bbe, limit clause, query, query expression
 permalink: /learn/by-example/limit-clause
 active: limit-clause
 redirect_from:
@@ -57,16 +57,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="ordering.html">
+                                    <a class="prev" href="ordering.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Ordering</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="table-syntax.html">
+                                    <a class="next" href="querying-tables.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Table Syntax</p>
+                                        <p>Querying Tables</p>
                                     </a>
                                 </div>
                                 
@@ -77,9 +77,9 @@ redirect_from:
             </div>
             <div class="example" id="limit-clause">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -90,16 +90,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=3eb47120288ae5c21fa3b33748fb3d5b&file=limit_clause.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=da88663dcdabee1683c55b07fc30ac21&file=limit_clause.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -254,10 +252,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

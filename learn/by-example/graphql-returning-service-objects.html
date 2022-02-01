@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Returning Service Objects
 description: A GraphQL service endpoint written in Ballerina
 keywords: ballerina, ballerina by example, bbe, graphql, graphql service
@@ -25,7 +25,7 @@ redirect_from:
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1">// Define a service class to use in GraphQL service.</span>
+<span class="c1">// Define a service class to use as an object in the GraphQL service.</span>
 <span class="kd">service</span> <span class="nx">class</span> <span class="nx">Person</span> <span class="p">{</span>
     <span class="nx">private</span> <span class="nx">final</span> <span class="kt">string</span> <span class="nx">name</span><span class="p">;</span>
     <span class="nx">private</span> <span class="nx">final</span> <span class="kt">int</span> <span class="nx">age</span><span class="p">;</span>
@@ -68,14 +68,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="graphql-hierarchical-resource-paths.html">
+                                    <a class="prev" href="graphql-hierarchical-resource-paths.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Hierarchical Resource Paths</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="graphql-input-types.html">
+                                    <a class="next" href="graphql-input-types.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Input Types</p>
                                     </a>
@@ -88,9 +88,9 @@ redirect_from:
             </div>
             <div class="example" id="graphql-returning-service-objects">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -102,11 +102,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -185,7 +183,7 @@ redirect_from:
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Define a service class to use in GraphQL service.</p>
+                                            <p>Define a service class to use as an object in the GraphQL service.</p>
 
                                         </div>
                                     </div>
@@ -247,7 +245,6 @@ redirect_from:
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run graphql_returning_service_objects.bal
-[ballerina/http] started HTTP/WS listener 0.0.0.0:4000
 </code></pre></div>
 
                                 </div>
@@ -299,10 +296,14 @@ curl -X POST -H &quot;Content-type: application/json&quot; -d &#39;{ &quot;query
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

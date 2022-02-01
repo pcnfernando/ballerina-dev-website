@@ -1,6 +1,21 @@
 - title: Swan Lake Release Notes
   url: '#'
   sublinks:
+    - title: 2201.0.0 (Swan Lake)
+      url: /downloads/swan-lake-release-notes/2201-0-0-swan-lake
+      active: 2201-0-0-swan-lake
+    - title: Swan Lake Beta 6
+      url: /downloads/swan-lake-release-notes/swan-lake-beta6
+      active: swan-lake-beta6
+    - title: Swan Lake Beta 5
+      url: /downloads/swan-lake-release-notes/swan-lake-beta5
+      active: swan-lake-beta5
+    - title: Swan Lake Beta 4
+      url: /downloads/swan-lake-release-notes/swan-lake-beta4
+      active: swan-lake-beta4
+    - title: Swan Lake Beta 3
+      url: /downloads/swan-lake-release-notes/swan-lake-beta3
+      active: swan-lake-beta3
     - title: Swan Lake Beta 2
       url: /downloads/swan-lake-release-notes/swan-lake-beta2
       active: swan-lake-beta2
@@ -50,6 +65,39 @@
 - title: 1.2 Release Notes
   url: '#'
   sublinks:
+    - title: 1.2.25
+      url: /downloads/1.2.x-release-notes/1.2.25
+      active: 1.2.25
+    - title: 1.2.24
+      url: /downloads/1.2.x-release-notes/1.2.24
+      active: 1.2.24
+    - title: 1.2.23
+      url: /downloads/1.2.x-release-notes/1.2.23
+      active: 1.2.23
+    - title: 1.2.22
+      url: /downloads/1.2.x-release-notes/1.2.22
+      active: 1.2.22
+    - title: 1.2.21
+      url: /downloads/1.2.x-release-notes/1.2.21
+      active: 1.2.21
+    - title: 1.2.20
+      url: /downloads/1.2.x-release-notes/1.2.20
+      active: 1.2.20
+    - title: 1.2.19
+      url: /downloads/1.2.x-release-notes/1.2.19
+      active: 1.2.19
+    - title: 1.2.18
+      url: /downloads/1.2.x-release-notes/1.2.18
+      active: 1.2.18
+    - title: 1.2.17
+      url: /downloads/1.2.x-release-notes/1.2.17
+      active: 1.2.17
+    - title: 1.2.16
+      url: /downloads/1.2.x-release-notes/1.2.16
+      active: 1.2.16
+    - title: 1.2.15
+      url: /downloads/1.2.x-release-notes/1.2.15
+      active: 1.2.15
     - title: 1.2.14
       url: /downloads/1.2.x-release-notes/1.2.14
       active: 1.2.14
@@ -94,33 +142,4 @@
       active: 1.2.1
     - title: 1.2.0
       url: /downloads/1.2.x-release-notes/1.2.0
-      active: 1.2.0
-
-#- title: 1.1 Release Notes
-  #url: '#' 
-  #sublinks:
-    #- title: 1.1.0
-      #url: /downloads/stable-release-notes/1.1.0
-      #active: 1.1.0
-
-#- title: 1.0 
-  #url: '#' 
-  #sublinks:
-    #- title: 1.0.5
-      #url: /downloads/release-notes/1.0.5
-      #active: 1.0.5
-
-
-      
- 
-
-
-   
-
-      
-
-
-
-
-
-
+      active: 1.2.0 

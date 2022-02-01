@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Service - OAuth2
 description: BBE on how to secure GraphQL service with OAuth2 in Ballerina.
 keywords: ballerina, ballerina by example, bbe, graphql, auth, oauth2, introspection
@@ -68,7 +68,7 @@ redirect_from:
  Ballerina uses the concept of scopes for authorization. A resource declared
  in a service can be bound to one/more scope(s). The scope can be included
  in the introspection response using a custom claim attribute. That custom
- claim attribute is also can be configured as the <code>scopeKey</code>.<br/>
+ claim attribute also can be configured as the <code>scopeKey</code>.<br/>
  In the authorization phase, the scopes of the service are compared
  against the scope included in the introspection response for at least one
  match between the two sets.<br/><br/>
@@ -81,14 +81,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="graphql-service-jwt-auth.html">
+                                    <a class="prev" href="graphql-service-jwt-auth.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Service - JWT Auth</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="websocket-text-client.html">
+                                    <a class="next" href="websocket-text-client.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Handle Text Messages with Client</p>
                                     </a>
@@ -101,9 +101,9 @@ redirect_from:
             </div>
             <div class="example" id="graphql-service-oauth2">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -115,11 +115,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -215,7 +213,6 @@ service /graphql on securedEP {
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session># You may need to change the certificate file path and private key file path.
 bal run graphql_service_oauth2.bal
-[ballerina/http] started HTTPS/WSS listener 0.0.0.0:9090
 </code></pre></div>
 
                                 </div>
@@ -245,10 +242,14 @@ bal run graphql_service_oauth2.bal
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

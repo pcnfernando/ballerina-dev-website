@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Transactional Producer
 description: BBE on how to transactionally produce messages using `kafka&#58;Producer`.
 keywords: ballerina, ballerina by example, bbe, kafka, producer, transaction
@@ -78,14 +78,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="kafka-consumer-client.html">
+                                    <a class="prev" href="kafka-consumer-client.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Consumer Client</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="kafka-consumer-group-service.html">
+                                    <a class="next" href="kafka-consumer-group-service.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Consumer Groups</p>
                                     </a>
@@ -98,9 +98,9 @@ redirect_from:
             </div>
             <div class="example" id="kafka-producer-transactional">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -112,11 +112,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -306,7 +304,6 @@ import ballerinax/kafka;
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run kafka_message_producer_transactional.bal
-[ballerina/http] started HTTP/WS listener 192.168.1.2:57457
 Transaction successful
 </code></pre></div>
 
@@ -337,10 +334,14 @@ Transaction successful
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

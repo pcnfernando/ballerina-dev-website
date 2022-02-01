@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Load Balancer
 description: BBE on how to use an HTTP load balancer in Ballerina. This will allow to balance the load of an endpoint using a given algorithm to select the endpoint.
 keywords: ballerina, ballerina by examples, bbe, http, resiliency, load balancer, load balance
@@ -18,7 +18,7 @@ redirect_from:
 <span class="nx">listener</span> <span class="nx">http</span><span class="p">:</span><span class="nx">Listener</span> <span class="nx">backendEP</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">new</span> <span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
 
 <span class="c1">// Define the load balance client endpoint to call the backend services.</span>
-<span class="nx">http</span><span class="p">:</span><span class="nx">LoadBalanceClient</span> <span class="nx">lbBackendEP</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">new</span> <span class="p">({</span>
+<span class="nx">final</span> <span class="nx">http</span><span class="p">:</span><span class="nx">LoadBalanceClient</span> <span class="nx">lbBackendEP</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">new</span> <span class="p">({</span>
         <span class="c1">// Define the set of HTTP clients that need to be load balanced.</span>
         <span class="nx">targets</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span><span class="nx">url</span><span class="p">:</span> <span class="s">&quot;http://localhost:8080/mock1&quot;</span><span class="p">},</span>
@@ -74,14 +74,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="http-circuit-breaker.html">
+                                    <a class="prev" href="http-circuit-breaker.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Circuit Breaker</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="http-failover.html">
+                                    <a class="next" href="http-failover.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Failover</p>
                                     </a>
@@ -94,9 +94,9 @@ redirect_from:
             </div>
             <div class="example" id="http-load-balancer">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -108,11 +108,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -153,7 +151,7 @@ redirect_from:
                             <div class="cTR hover-enable">
 
                                 <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>http:LoadBalanceClient lbBackendEP = check new ({
+                                    <div class="highlight"><pre><code class=language-ballerina>final http:LoadBalanceClient lbBackendEP = check new ({
 </code></pre></div>
 
                                 </div>
@@ -288,8 +286,6 @@ redirect_from:
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run http_load_balancer.bal
-[ballerina/http] started HTTP/WS listener 0.0.0.0:8080
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 </code></pre></div>
 
                                 </div>
@@ -382,10 +378,14 @@ Mock1 resource was invoked.
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

@@ -3,7 +3,7 @@ name: Push changes of new Swan Lake Release-notes/Archive pages
 on:
   push:
     branches:
-      - master
+      - dev
     paths:
       - '_data/swanlake-latest/**'
 
@@ -32,7 +32,7 @@ jobs:
 
     - name: Commit release-notes-versions json file
       run: |
-        git pull origin master
+        git pull origin dev
         
         git config --global user.email "ballerina-bot@ballerina.org"
         git config --global user.name "ballerina-bot"

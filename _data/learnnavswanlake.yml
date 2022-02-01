@@ -13,6 +13,9 @@
     - title: Writing Your First Ballerina Program 
       url: /learn/user-guide/getting-started/writing-your-first-ballerina-program/
       active: writing-your-first-ballerina-program
+    - title: Writing a GraphQL API with Ballerina
+      url: /learn/writing-a-graphql-api-with-ballerina/
+      active: writing-a-graphql-api-with-ballerina
 
 - title: Ballerina Packages
   url: '#'
@@ -36,7 +39,7 @@
 - title: Testing Ballerina Code
   url: '#'
   sublinks:
-    - title: Quick Start
+    - title: Testing a Simple Function
       url: /learn/user-guide/testing-ballerina-code/testing-quick-start
       active: testing-quick-start
     - title: Writing Tests
@@ -145,6 +148,9 @@
     - title: Observing Ballerina Code
       url: /learn/user-guide/observability/observing-ballerina-code
       active: observing-ballerina-code
+    - title: Observing Ballerina Services Through Choreo
+      url: /learn/user-guide/observability/observing-ballerina-services-through-choreo
+      active: observing-ballerina-services-through-choreo
 
 - title: Interoperability
   url: '#' 
@@ -181,5 +187,4 @@
   #sublinks:
     #- title: Extending with Compiler Extensions 
       #url: /swan-lake/learn/extending-with-compiler-extensions
-      #active: extending-with-compiler-extensions
-      
+      #active: extending-with-compiler-extensions     

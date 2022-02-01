@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Named Workers and Futures
 description: This BBE demonstrates futures
 keywords: ballerina, ballerina by example, bbe, future
@@ -20,7 +20,7 @@ redirect_from:
     <span class="p">}</span>
     
     <span class="c1">// Futures and workers are the same thing.</span>
-    <span class="c1">// A reference to a named worker can be implicitly converted into a future.</span>
+    <span class="c1">// A reference to a named worker can be implicitly converted into a `future`.</span>
     <span class="k">return</span> <span class="nx">A</span><span class="p">;</span>
 
 <span class="p">}</span>
@@ -29,7 +29,7 @@ redirect_from:
 
 <span class="kd">function</span> <span class="nx">startInt</span><span class="p">(</span><span class="nx">FuncInt</span> <span class="nx">f</span><span class="p">)</span> <span class="nx">returns</span> <span class="nx">future</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="p">{</span>
     <span class="c1">// `start` is sugar for calling a function with a named worker and returning</span>
-    <span class="c1">// the named worker as a future.</span>
+    <span class="c1">// the named worker as a `future`.</span>
     <span class="k">return</span> <span class="nx">start</span> <span class="nx">f</span><span class="p">();</span>
 
 <span class="p">}</span>
@@ -53,9 +53,9 @@ redirect_from:
                         <td class="cLeftTD">
                             <h2>Named Workers and Futures</h2>
                             <p><p>Futures and workers are the same thing.
- A reference to a named worker can be implicitly converted into a future.
+ A reference to a named worker can be implicitly converted into a <code>future</code>.
  <code>start</code> is sugar for calling a function with a named worker and returning
- the named worker as a future.
+ the named worker as a <code>future</code>.
  Cancellation of futures only happens at yield points.</p>
 </p>
 
@@ -64,14 +64,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="multiple-wait.html">
+                                    <a class="prev" href="multiple-wait.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Multiple Wait</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="inter-worker-message-passing.html">
+                                    <a class="next" href="inter-worker-message-passing.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Inter-Worker Message Passing</p>
                                     </a>
@@ -84,9 +84,9 @@ redirect_from:
             </div>
             <div class="example" id="named-workers-and-futures">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -97,16 +97,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=18a32a9e0769b734035b326d0e6bf869&file=named_workers_and_futures.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=47a52fa81156bb610e5828d2c075e22e&file=named_workers_and_futures.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -153,7 +151,7 @@ redirect_from:
                                     <div class="cCodeDesription">
                                         <div>
                                             <p>Futures and workers are the same thing.
- A reference to a named worker can be implicitly converted into a future.</p>
+ A reference to a named worker can be implicitly converted into a <code>future</code>.</p>
 
                                         </div>
                                     </div>
@@ -209,7 +207,7 @@ redirect_from:
                                     <div class="cCodeDesription">
                                         <div>
                                             <p><code>start</code> is sugar for calling a function with a named worker and returning
- the named worker as a future.</p>
+ the named worker as a <code>future</code>.</p>
 
                                         </div>
                                     </div>
@@ -301,10 +299,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

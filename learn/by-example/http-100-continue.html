@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: 100 Continue
 description: BBE on how HTTP 100-continue can be handled by the Ballerina server and the HTTP client connector.
 keywords: ballerina, ballerina by example, bbe, http, 100-continue
@@ -74,14 +74,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="http-cors.html">
+                                    <a class="prev" href="http-cors.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>CORS</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="http-streaming.html">
+                                    <a class="next" href="http-streaming.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Streaming</p>
                                     </a>
@@ -94,9 +94,9 @@ redirect_from:
             </div>
             <div class="example" id="http-100-continue">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -108,11 +108,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -268,7 +266,6 @@ import ballerina/log;
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run http_expect_header.bal
-[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 time = 2021-01-21 20:31:28,347 level = INFO  module = &quot;&quot; message = &quot;TEST 100 CONTINUE&quot;
 </code></pre></div>
 
@@ -373,10 +370,14 @@ Unprocessable Entity
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Unions
 description: This BBE demonstrates unions in Ballerina.
 keywords: ballerina, ballerina by example, bbe, unions
@@ -54,8 +54,8 @@ redirect_from:
                         <td class="cLeftTD">
                             <h2>Unions</h2>
                             <p><p><code>T1|T2</code> is the union of the sets described by <code>T1</code> and <code>T2</code>. <code>T?</code> is completely equivalent to <code>T|()</code>.
- Unions are untagged. The <code>is</code> operator tests whether a value belongs to a specific type. <code>is</code> operator in
- the condition causes declared type to be narrowed.</p>
+ Unions are untagged. The <code>is</code> operator tests whether a value belongs to a specific type. The <code>is</code> operator in
+ the condition causes the declared type to be narrowed.</p>
 </p>
 
                         </td>
@@ -63,16 +63,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="structural-typing.html">
+                                    <a class="prev" href="structural-typing.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Structural Typing</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="error-reporting.html">
+                                    <a class="next" href="error-reporting.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Error Reporting</p>
+                                        <p>Errors</p>
                                     </a>
                                 </div>
                                 
@@ -83,9 +83,9 @@ redirect_from:
             </div>
             <div class="example" id="unions">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -96,16 +96,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=64922e14c2fdd05877d7f1aac8f10738&file=unions.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=ecb49f71d86e655c8aa9dd9f27544024&file=unions.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -314,10 +312,14 @@ Leslie Banks
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

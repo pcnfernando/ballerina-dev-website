@@ -5,8 +5,6 @@ permalink: /downloads/swan-lake-release-notes/swan-lake-beta2/
 active: swan-lake-beta2
 redirect_from: 
     - /downloads/swan-lake-release-notes/swan-lake-beta2
-    - /downloads/swan-lake-release-notes/
-    - /downloads/swan-lake-release-notes
 ---
 ## Overview of Ballerina Swan Lake Beta2
 
@@ -38,33 +36,33 @@ If you have not installed Ballerina, then download the [installers](/downloads/#
 
 - Introduced the support for recursive tuple types.
 
-```ballerina
-type RecursiveType [int, RecursiveType[]];
+    ```ballerina
+    type RecursiveType [int, RecursiveType[]];
 
-public function main() {
-    RecursiveType a = [1];
-    RecursiveType b = [1, []];
-    RecursiveType c = [1, [a]];
-}
-```
+    public function main() {
+        RecursiveType a = [1];
+        RecursiveType b = [1, []];
+        RecursiveType c = [1, [a]];
+    }
+    ```
 
 - Changed the static type of the string iteration from `string` to `string:Char`.
 
-```ballerina
-public function main() {
-    string str = "foo";
+    ```ballerina
+    public function main() {
+        string str = "foo";
 
-    foreach string:Char s in str {
-        io:println(s);        
+        foreach string:Char s in str {
+            io:println(s);
+        }
+
+        record {|string:Char value;|}? next = str.iterator().next();
+
+        if !(next is ()) {
+            io:println(next.value);
+        }
     }
-
-    record {| string:Char value; |}? next = str.iterator().next();
-
-    if !(next is ()) {
-        io:println(next.value);
-    }
-}
-```
+    ```
 
 - Changed inferred type of rest field after a mapping from `map` to a `record` with the remaining field types.
 
@@ -92,12 +90,12 @@ To view bug fixes, see the [GitHub milestone for Swan Lake Beta2](https://github
 
 ### Improvements
 
-- Introduced the support for `configurable` variables of union types via the TOML syntax. 
+- Introduced `configurable` variables of union types via the TOML syntax. 
 
-```ballerina
-configurable map<anydata> myMap = ?;
-configurable int|string id = ?;
-```
+    ```ballerina
+    configurable map<anydata> myMap = ?;
+    configurable int|string id = ?;
+    ```
 
 **TOML:**
 
@@ -117,17 +115,13 @@ To view bug fixes, see the [GitHub milestone for Swan Lake Beta2](https://github
 
 ### New Features
 
-#### `postgresql` Package
-
-Introduced the new `postgresql` database package with this release. This package provides the functionality required to access and manipulate data stored in a PostgreSQL database.
-
 #### `log` Package
 
 Added observability span context values to log messages when observability is enabled.
 
 #### `io` Package
 
-Introduced the `io:fprint` and `io:fprintln` APIs which allows the users to print content to a given stream (standard error or standard out).
+Introduced the `io:fprint` and `io:fprintln` APIs which allow users to print content to a given stream (standard error or standard out).
 
 ```ballerina
 io:fprint(io:stderr, "Unexpected error occurred");
@@ -138,7 +132,7 @@ io:fprintln(io:stdout, "Passed without an error");
 
 #### `websocket` Package
 
-Introduced the declarative auth support for the server-side. 
+Introduced declarative auth support for the server-side. 
 
 #### `websub` Package
 
@@ -153,14 +147,14 @@ Made the return type of the stream to be inferred now as a second parameter to t
 **Previous Syntax**
 
 ```ballerina
-stream<record{}, error> resultStream =
-        jdbcClient->query(`SELECT * FROM Customers`, Customer);
+stream<record {}, error> resultStream = 
+jdbcClient->query(`SELECT * FROM Customers`,Customer);
 
-stream<Customer, sql:Error> customerStream =
+stream<Customer, sql:Error> customerStream = 
         <stream<Customer, sql:Error>>resultStream;
 ```
 
-According to the previous syntax, you can give the `Customer` record as the expected record type of the stream but you can not get that stream directly. For that, you have to cast the returned stream to the expected stream. Therefore, this has been improved to directly get data as an expected record type.
+According to the previous syntax, you can give the `Customer` record as the expected record type of the stream but you cannot get that stream directly. To do that, you have to cast the returned stream to the expected stream. Therefore, this has been improved to directly access data as an expected record type.
 
 **New Syntax**
 
@@ -195,7 +189,7 @@ stream<Customer, error> customerStream = sqlClient->query(`SELECT * FROM Custome
 - Updated to log the error stack trace when an error is returned from the remote function of the hub service.
 - Updated to return the module-specific errors from the WebSubHub public APIs.
 - Updated to allow non-remote methods in the Hub Service.
-- Updated to allow `http:Headers` as an optional parameter in specific remote-methods(`onRegisterTopic`/`onDeregisterTopic`/`onUpdateMessage`/`onSubscription`/`onUnsubscription`).
+- Updated to allow `http:Headers` as an optional parameter in specific remote methods (`onRegisterTopic`/`onDeregisterTopic`/`onUpdateMessage`/`onSubscription`/`onUnsubscription`).
 
 ### Bug Fixes
 

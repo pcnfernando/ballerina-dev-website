@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Inter-Worker Message Passing
 description: This BBE demonstrates inter-worker message passing
 keywords: ballerina, ballerina by example, bbe, worker, message passing
@@ -53,10 +53,10 @@ redirect_from:
                             <h2>Inter-Worker Message Passing</h2>
                             <p><p>Use <code>-&gt; W</code> or <code>&lt;- W</code> to send a message to or receive a message from worker <code>W</code> (use
  <code>function</code> to refer to the function&rsquo;s default worker).
- Messages are copied using <code>clone()</code>; implies immutable values are passed
- without copy.
+ The messages are copied using <code>clone()</code>. It implies immutable values are passed
+ without a copy.
  Message sends and receives are paired up at compile-time.
- Each pair turns into horizontal line in the sequence diagram.
+ Each pair turns into a horizontal line in the sequence diagram.
  Easy to use and safe, but limited expressiveness.</p>
 </p>
 
@@ -65,14 +65,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="named-workers-and-futures.html">
+                                    <a class="prev" href="named-workers-and-futures.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Named Workers and Futures</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="inter-worker-failure-propagation.html">
+                                    <a class="next" href="inter-worker-failure-propagation.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Inter-Worker Failure Propagation</p>
                                     </a>
@@ -85,9 +85,9 @@ redirect_from:
             </div>
             <div class="example" id="inter-worker-message-passing">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -98,16 +98,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=e7b8b5f0f1065ffa6616eedd08b1c138&file=inter_worker_message_passing.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=235aa9d40fcf8c80f9d4634cf19692eb&file=inter_worker_message_passing.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -316,10 +314,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

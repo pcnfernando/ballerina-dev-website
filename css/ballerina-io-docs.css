@@ -10,7 +10,12 @@
 
 .cBallerina-io p {
     margin: 10px 0;
+
 }
+.cBallerina-io li p:first-child{
+    margin-top:0px;
+}
+
 
 .cBallerinaFooterSignUp p {
     margin-bottom: 0 !important;
@@ -207,6 +212,8 @@ table.docutils thead {
     padding-right: 0;
 }
 
+
+
 .rst-content .section ol li,
 .rst-content ol.arabic li,
 .wy-plain-list-decimal li,
@@ -215,12 +222,14 @@ article ol li,
 .rst-content .toctree-wrapper ul li,
 .wy-plain-list-disc li,
 article ul li {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     font-weight: 300;
     color: #57595d;
 }
-
+.cBlallerina-io-docs-content-container ol li {
+    margin-bottom: 15px;
+}
 li.cTableTitle {
     font-weight: 600;
 }
@@ -241,7 +250,7 @@ th {
 }
 
 .modal-content {
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 0;
 }
 
@@ -596,10 +605,23 @@ ul.lower-latin li {
         transition: all 0.2s ease 0s;
     }
 }
+
 .cBallerina-io .permalinkHeader {
-    padding-top: 80px;
+    padding-top: 40px !important;
     margin-top: -20px;
+    margin-bottom: 20px !important;
 }
+
+/* ul.table-striped{
+    padding-left:40px !important;
+    margin-left:40px !important;
+    margin-bottom:10px !important;
+
+}
+
+ul.cBallerina-io p{
+    padding-left:40px !important;
+} */
 .permalinkHeader {
     position: relative;
     /* display: flex !important; */

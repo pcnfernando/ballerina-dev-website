@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Service - SSL/TLS
 description: BBE on how to secure HTTP listener with SSL.
 keywords: ballerina, ballerina by example, bbe, http, ssl, tls
@@ -15,7 +15,7 @@ redirect_from:
                 <div class="highlight"><pre><span class="kn">import</span> <span class="nx">ballerina</span><span class="o">/</span><span class="nx">http</span><span class="p">;</span>
 
 <span class="c1">// An HTTP listener can be configured to communicate through HTTPS as well.</span>
-<span class="c1">// To secure an listener using HTTPS, the listener needs to be configured with</span>
+<span class="c1">// To secure a listener using HTTPS, the listener needs to be configured with</span>
 <span class="c1">// a certificate file and a private key file for the listener.</span>
 <span class="c1">// The [`http:ListenerSecureSocket`](https://docs.central.ballerina.io/ballerina/http/latest/records/ListenerSecureSocket) record</span>
 <span class="c1">// provides the SSL-related listener configurations of the listener.</span>
@@ -54,14 +54,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="http-client-data-binding.html">
+                                    <a class="prev" href="http-caching-client.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Client Data Binding</p>
+                                        <p>Caching Client</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="http-service-mutual-ssl.html">
+                                    <a class="next" href="http-service-mutual-ssl.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Service - Mutual SSL</p>
                                     </a>
@@ -74,9 +74,9 @@ redirect_from:
             </div>
             <div class="example" id="http-service-ssl-tls">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -88,11 +88,9 @@ redirect_from:
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -130,7 +128,7 @@ redirect_from:
                                     <div class="cCodeDesription">
                                         <div>
                                             <p>An HTTP listener can be configured to communicate through HTTPS as well.
- To secure an listener using HTTPS, the listener needs to be configured with
+ To secure a listener using HTTPS, the listener needs to be configured with
  a certificate file and a private key file for the listener.
  The <a href="https://docs.central.ballerina.io/ballerina/http/latest/records/ListenerSecureSocket"><code>http:ListenerSecureSocket</code></a> record
  provides the SSL-related listener configurations of the listener.</p>
@@ -169,7 +167,26 @@ redirect_from:
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session># You may need to change the certificate file path and private key file path.
 bal run http_service_ssl_tls.bal
-[ballerina/http] started HTTPS/WSS listener 0.0.0.0:9090
+</code></pre></div>
+
+                                </div>
+                                <div class="docs">
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="codeSnippeset">
+
+                        <div class="cBBE-body">
+                            
+                            <div class="cTR cOutputTr">
+
+                                <div class="code cOutput">
+                                    <div class="highlight"><pre><code class=shell-session># To invoke the service, use the cURL commands below.
+curl https://localhost:9090/foo/bar --cacert /path/to/server-public.crt
 </code></pre></div>
 
                                 </div>
@@ -199,10 +216,14 @@ bal run http_service_ssl_tls.bal
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

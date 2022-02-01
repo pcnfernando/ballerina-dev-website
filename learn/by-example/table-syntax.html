@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Table Syntax
 description: This BBE demonstrates table syntax in Ballerina.
 keywords: ballerina, ballerina by example, bbe, table syntax, table
@@ -19,7 +19,7 @@ redirect_from:
     <span class="kt">int</span> <span class="nx">salary</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="c1">// Creates a `table` with `Employee` type members, where each</span>
+<span class="c1">// Creates a `table` with members of the `Employee` type, where each</span>
 <span class="c1">// member is uniquely identified using their `name` field.</span>
 <span class="nx">table</span><span class="p">&lt;</span><span class="nx">Employee</span><span class="p">&gt;</span> <span class="nx">key</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="nx">t</span> <span class="p">=</span> <span class="nx">table</span> <span class="p">[</span>
     <span class="p">{</span> <span class="nx">name</span><span class="p">:</span> <span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="nx">salary</span><span class="p">:</span> <span class="mi">100</span> <span class="p">},</span>
@@ -31,12 +31,13 @@ redirect_from:
     <span class="nx">foreach</span> <span class="nx">Employee</span> <span class="nx">e</span> <span class="nx">in</span> <span class="nx">t</span> <span class="p">{</span>
         <span class="nx">e</span><span class="p">.</span><span class="nx">salary</span> <span class="o">+=</span> <span class="nx">n</span><span class="p">;</span>
     <span class="p">}</span>
-
+    
 <span class="p">}</span>
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Retrieves `Employee` with key value `Fred`.</span>
+    <span class="c1">// Retrieves the `Employee` member with `&quot;Fred&quot;` as the value of the key.</span>
     <span class="nx">Employee</span><span class="err">?</span> <span class="nx">e</span> <span class="p">=</span> <span class="nx">t</span><span class="p">[</span><span class="s">&quot;Fred&quot;</span><span class="p">];</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">toBalString</span><span class="p">());</span>
 
     <span class="nx">increaseSalary</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
@@ -72,14 +73,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="limit-clause.html">
+                                    <a class="prev" href="json-numbers.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Limit Clause</p>
+                                        <p>JSON Numbers</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="multiple-key-fields.html">
+                                    <a class="next" href="multiple-key-fields.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Multiple Key Fields</p>
                                     </a>
@@ -92,9 +93,9 @@ redirect_from:
             </div>
             <div class="example" id="table-syntax">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -105,16 +106,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=080285fc9c1f1ecdbea9e2c0a6aafa2b&file=table_syntax.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=8959b19a788dd256a661e4d04cb13ef4&file=table_syntax.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -162,7 +161,7 @@ redirect_from:
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Creates a <code>table</code> with <code>Employee</code> type members, where each
+                                            <p>Creates a <code>table</code> with members of the <code>Employee</code> type, where each
  member is uniquely identified using their <code>name</code> field.</p>
 
                                         </div>
@@ -189,6 +188,8 @@ redirect_from:
                                     <div class="highlight"><pre><code class=language-ballerina>    foreach Employee e in t {
         e.salary += n;
     }
+    
+}
 </code></pre></div>
 
                                 </div>
@@ -200,18 +201,6 @@ redirect_from:
 
                                         </div>
                                     </div>
-                                    
-                                </div>
-                            </div>
-                            
-                            <div class="cTR">
-
-                                <div class="code leading">
-                                    <div class="highlight"><pre><code class=language-ballerina>}
-</code></pre></div>
-
-                                </div>
-                                <div class="docs">
                                     
                                 </div>
                             </div>
@@ -232,6 +221,7 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    Employee? e = t[&quot;Fred&quot;];
+    io:println(e.toBalString());
 </code></pre></div>
 
                                 </div>
@@ -239,7 +229,7 @@ redirect_from:
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Retrieves <code>Employee</code> with key value <code>Fred</code>.</p>
+                                            <p>Retrieves the <code>Employee</code> member with <code>&quot;Fred&quot;</code> as the value of the key.</p>
 
                                         </div>
                                     </div>
@@ -272,6 +262,7 @@ redirect_from:
 
                                 <div class="code cOutput">
                                     <div class="highlight"><pre><code class=shell-session>bal run table_syntax.bal
+()
 [{&quot;name&quot;:&quot;John&quot;,&quot;salary&quot;:200},{&quot;name&quot;:&quot;Jane&quot;,&quot;salary&quot;:300}]
 </code></pre></div>
 
@@ -302,10 +293,14 @@ redirect_from:
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

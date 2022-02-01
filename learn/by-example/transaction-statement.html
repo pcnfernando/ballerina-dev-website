@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Transaction Statement
 description: This BBE introduces transaction statement in Ballerina.
 keywords: ballerina, ballerina by example, bbe, transactions, transaction, commit
@@ -28,6 +28,7 @@ redirect_from:
         <span class="nx">check</span> <span class="nx">commit</span><span class="p">;</span>
 
     <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">doStage1</span><span class="p">()</span> <span class="p">{</span>
@@ -47,10 +48,10 @@ redirect_from:
                         <td class="cLeftTD">
                             <h2>Transaction Statement</h2>
                             <p><p>Ballerina provides support for interacting with a transaction manager.
- Compile-time guarantees that transactions are bracketed with begin and commit or rollback.
- The region in the middle, is typed as being a transactional context.
- Ballerina does not have a transactional memory and includes transaction manager.
- Current transaction is a part of the execution context of a strand.</p>
+ Compile-time guarantees that transactions are bracketed with begin and <code>commit</code> or <code>rollback</code>.
+ The region in the middle is typed as being a transactional context.
+ Ballerina does not have a transactional memory and includes a transaction manager.
+ The current transaction is a part of the execution context of a strand.</p>
 </p>
 
                         </td>
@@ -58,14 +59,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="inter-worker-failure-propagation.html">
+                                    <a class="prev" href="inter-worker-failure-propagation.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Inter-Worker Failure Propagation</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="check-semantics.html">
+                                    <a class="next" href="check-semantics.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Check Semantics</p>
                                     </a>
@@ -78,9 +79,9 @@ redirect_from:
             </div>
             <div class="example" id="transaction-statement">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -91,16 +92,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=7750729a476631445912f364d445296a&file=transaction_statement.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=36e437a19dae176c9078eaa853935521&file=transaction_statement.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -179,6 +178,7 @@ redirect_from:
 
                                 <div class="code leading">
                                     <div class="highlight"><pre><code class=language-ballerina>    }
+    return;
 }
 </code></pre></div>
 
@@ -258,10 +258,14 @@ Stage2 completed
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

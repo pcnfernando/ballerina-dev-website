@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Anydata Type
 description: This BBE demonstrates anydata type in Ballerina.
 keywords: ballerina, ballerina by example, bbe, anydata type
@@ -34,9 +34,9 @@ redirect_from:
                     <tr>
                         <td class="cLeftTD">
                             <h2>Anydata Type</h2>
-                            <p><p>The type for plain data is <code>anydata</code>. The subtype of <code>any</code>. <code>==</code> and <code>!=</code> operators tests for deep equality.
- <code>x.clone()</code> returns a deep copy, with the same mutability. <code>x.cloneReadOnly()</code> returns a deep copy that is
- immutable. Ballerina syntax uses <code>ReadOnly</code> to mean immutable. Both <code>x.clone</code> and <code>cloneReadOnly()</code> do
+                            <p><p>The type for plain data is <code>anydata</code>. It is a subtype of <code>any</code>. <code>==</code> and <code>!=</code> operators test for deep equality.
+ <code>x.clone()</code> returns a deep copy with the same mutability. <code>x.cloneReadOnly()</code> returns a deep copy that is
+ immutable. Ballerina syntax uses <code>readonly</code> to mean immutable. Both <code>x.clone()</code> and <code>x.cloneReadOnly()</code> do
  not copy immutable parts of <code>x</code>. <code>const</code> structures are allowed. Equality and cloning handle cycles.</p>
 </p>
 
@@ -45,16 +45,16 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="panics.html">
+                                    <a class="prev" href="error-reporting.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
-                                        <p>Panics</p>
+                                        <p>Errors</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="ignoring-return-values-and-errors.html">
+                                    <a class="next" href="any-type.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
-                                        <p>Ignoring Return Values and Errors</p>
+                                        <p>Any Type</p>
                                     </a>
                                 </div>
                                 
@@ -65,9 +65,9 @@ redirect_from:
             </div>
             <div class="example" id="anydata-type">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -78,16 +78,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=4544fe35908747698d1e30200901d1e7&file=anydata_type.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=dc75bda8f64c34be3e6b9e597fbb0b46&file=anydata_type.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -213,10 +211,14 @@ true
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Handle Text Messages with Client
 description: This BBE demonstrates how a WebSocket client can be used to connect to and interact with a WebSocket server using Ballerina.
 keywords: ballerina, ballerina by example, bbe, websocket, sync, client
@@ -16,13 +16,13 @@ redirect_from:
 <span class="kn">import</span> <span class="nx">ballerina</span><span class="o">/</span><span class="nx">websocket</span><span class="p">;</span>
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="nx">returns</span> <span class="nx">error</span><span class="err">?</span> <span class="p">{</span>
-    <span class="c1">// Create a new [WebSocket client](https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/clients/Client).</span>
+    <span class="c1">// Create a new [WebSocket client](https://lib.ballerina.io/ballerina/websocket/latest/clients/Client).</span>
    <span class="nx">websocket</span><span class="p">:</span><span class="nx">Client</span> <span class="nx">wsClient</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">new</span><span class="p">(</span><span class="s">&quot;ws://echo.websocket.org&quot;</span><span class="p">);</span>
 
-   <span class="c1">// Write a text message to the server using [writeTextMessage](https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/clients/Client#writeTextMessage).</span>
+   <span class="c1">// Write a text message to the server using [writeTextMessage](https://lib.ballerina.io/ballerina/websocket/latest/clients/Client#writeTextMessage).</span>
    <span class="nx">check</span> <span class="nx">wsClient</span><span class="o">-&gt;</span><span class="nx">writeTextMessage</span><span class="p">(</span><span class="s">&quot;Text message&quot;</span><span class="p">);</span>
 
-   <span class="c1">// Read a text message echoed from the server using [readTextMessage](https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/clients/Client#readTextMessage).</span>
+   <span class="c1">// Read a text message echoed from the server using [readTextMessage](https://lib.ballerina.io/ballerina/websocket/latest/clients/Client#readTextMessage).</span>
    <span class="kt">string</span> <span class="nx">textResp</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">wsClient</span><span class="o">-&gt;</span><span class="nx">readTextMessage</span><span class="p">();</span>
    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="nx">textResp</span><span class="p">);</span>
 <span class="p">}</span>
@@ -37,7 +37,7 @@ redirect_from:
                             <h2>Handle Text Messages with Client</h2>
                             <p><p>The WebSocket client can be used to connect to and interact with a WebSocket server in a Synchronous manner. This example demonstrates how to read and write text messages using ballerina websocket client<br/><br/>
  For more information on the underlying module,
- see the <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/">WebSocket module</a>.</p>
+ see the <a href="https://lib.ballerina.io/ballerina/websocket/latest/">WebSocket module</a>.</p>
 </p>
 
                         </td>
@@ -45,14 +45,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="graphql-service-oauth2.html">
+                                    <a class="prev" href="graphql-service-oauth2.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>Service - OAuth2</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="websocket-binary-client.html">
+                                    <a class="next" href="websocket-binary-client.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Handle Binary Messages with Client</p>
                                     </a>
@@ -65,9 +65,9 @@ redirect_from:
             </div>
             <div class="example" id="websocket-text-client">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -77,17 +77,11 @@ redirect_from:
                                             <a target="_blank" href="https://github.com/ballerina-platform/ballerina-distribution/tree/master/examples/websocket-text-client/"><img src="/img/github-logo-green.svg" /></a>
                                         </li>
                                         
-                                        <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=f3d820fe56f38deefb7edf8df7c5aaa5&file=websocket_text_client.bal"><img src="/img/main-play-green-btn.svg" /></a>
-                                        </li>
-                                        
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -130,7 +124,7 @@ import ballerina/websocket;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Create a new <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/clients/Client">WebSocket client</a>.</p>
+                                            <p>Create a new <a href="https://lib.ballerina.io/ballerina/websocket/latest/clients/Client">WebSocket client</a>.</p>
 
                                         </div>
                                     </div>
@@ -149,7 +143,7 @@ import ballerina/websocket;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Write a text message to the server using <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/clients/Client#writeTextMessage">writeTextMessage</a>.</p>
+                                            <p>Write a text message to the server using <a href="https://lib.ballerina.io/ballerina/websocket/latest/clients/Client#writeTextMessage">writeTextMessage</a>.</p>
 
                                         </div>
                                     </div>
@@ -170,7 +164,7 @@ import ballerina/websocket;
                                     
                                     <div class="cCodeDesription">
                                         <div>
-                                            <p>Read a text message echoed from the server using <a href="https://ballerina.io/swan-lake/learn/api-docs/ballerina/#/ballerina/websocket/latest/clients/Client#readTextMessage">readTextMessage</a>.</p>
+                                            <p>Read a text message echoed from the server using <a href="https://lib.ballerina.io/ballerina/websocket/latest/clients/Client#readTextMessage">readTextMessage</a>.</p>
 
                                         </div>
                                     </div>
@@ -230,10 +224,14 @@ import ballerina/websocket;
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 

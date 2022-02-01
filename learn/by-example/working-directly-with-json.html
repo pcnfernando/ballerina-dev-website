@@ -1,5 +1,5 @@
 ---
-layout: ballerina-example-page
+layout: ballerina-example-page-old
 title: Working directly with JSON
 description: This BBE demonstrates how to work directly with JSON values in Ballerina.
 keywords: ballerina, ballerina by example, bbe, json type, json
@@ -33,7 +33,7 @@ redirect_from:
 <span class="kt">string</span> <span class="nx">s2</span> <span class="p">=</span> <span class="nx">check</span> <span class="nx">value</span><span class="p">:</span><span class="nx">ensureType</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">z</span><span class="p">,</span> <span class="kt">string</span><span class="p">);</span>
 
 <span class="nx">public</span> <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Value of s1: &quot;</span> <span class="o">+</span> <span class="nx">s2</span><span class="p">);</span>
+    <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Value of s1: &quot;</span> <span class="o">+</span> <span class="nx">s1</span><span class="p">);</span>
     <span class="nx">io</span><span class="p">:</span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;Value of s2: &quot;</span> <span class="o">+</span> <span class="nx">s2</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -57,14 +57,14 @@ redirect_from:
                             <div class="cTopButtonContainer">
                                 
                                 <div class="cButtonInfoContainer">
-                                    <a class="prev" href="json-type.html">
+                                    <a class="prev" href="json-type.html?is_ref_by_example=true">
                                         <span>< PREVIOUS</span>
                                         <p>JSON Type</p>
                                     </a>
                                 </div>
                                  
                                 <div class="cButtonInfoContainer">
-                                    <a class="next" href="match-statement-with-maps.html">
+                                    <a class="next" href="match-statement-with-maps.html?is_ref_by_example=true">
                                         <span>NEXT ></span>
                                         <p>Match Statement With Maps</p>
                                     </a>
@@ -77,9 +77,9 @@ redirect_from:
             </div>
             <div class="example" id="working-directly-with-json">
                 <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
-                    <table class="cTopControlsContainer">
-                        <tr>
-                            <td class="cLeftTD">
+                    <div class="cTopControlsContainer">
+                        <div class="cTopControlsRow">
+                            <div class="cLeftTD">
                                 <div class="cBBE-links">
                                     <ul>
                                         <li>
@@ -90,16 +90,14 @@ redirect_from:
                                         </li>
                                         
                                         <li>
-                                            <a target="_blank" href="https://play.ballerina.io/?gist=42fcbe781e6848146886ddf46627c3b4&file=working_directly_with_json.bal"><img src="/img/main-play-green-btn.svg" /></a>
+                                            <a target="_blank" href="https://play.ballerina.io/?gist=ec24f304fa05e005c0e64e755901e9a5&file=working_directly_with_json.bal"><img src="/img/main-play-green-btn.svg" /></a>
                                         </li>
                                         
                                     </ul>
                                 </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-
+                            </div> 
+                        </div>
+                    </div>
               
                     
                     <div class="codeSnippeset">
@@ -188,7 +186,7 @@ string s1 = check v.z;
 
                                 <div class="code">
                                     <div class="highlight"><pre><code class=language-ballerina>public function main() {
-    io:println(&quot;Value of s1: &quot; + s2);
+    io:println(&quot;Value of s1: &quot; + s1);
     io:println(&quot;Value of s2: &quot; + s2);
 }
 </code></pre></div>
@@ -241,10 +239,14 @@ Value of s2: ballerina
                     $(".cCodeLeft").toggleClass('cHide');
                 });
 
+                // get code text
+                var codeSnippet = document.getElementsByClassName('FullCode')[0];
+                var codeText = codeSnippet.getElementsByTagName('pre')[0].textContent;
+
                 // register "copy to clipboard" event to elements with "copy" class
                 var clipboard = new ClipboardJS('.copy', {
                     text: function(trigger) {
-                        return $('.FullCode').find('pre').text();
+                        return codeText;
                     }
                 });
 
